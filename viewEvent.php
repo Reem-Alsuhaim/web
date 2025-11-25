@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['admin_logged_in'])){ header("Location: admin.php"); exit(); }
-include("database/config.php");
+include("config.php");
 
 
 $id = $_GET['id'] ?? 0;
@@ -15,7 +15,7 @@ $event = $stmt->get_result()->fetch_assoc();
 <html>
 <head>
     <title>View Event</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style2.css">
     </head>
 <body>
 
@@ -26,10 +26,17 @@ $event = $stmt->get_result()->fetch_assoc();
 
     <?php if($event): ?>
         <p><b>Name:</b> <?= $event['name']; ?></p>
-        <p><b>Date Time:</b> <?= $event['date_time']; ?></p>
+        <p><b>Date:</b> <?= $event['event_date']; ?></p>
+        <p><b>Time:</b> <?= $event['event_time']; ?></p>
         <p><b>Location:</b> <?= $event['location']; ?></p>
         <p><b>Price:</b> <?= $event['price']; ?></p>
-        <p><b>Max Tickets:</b> <?= $event['max_tickets']; ?></p>
+        <p><b>Max Tickets:</b> <?= $event['available']; ?></p>
+        <p><b>Description:</b> <?= $event['description']; ?></p>
+        <p><b>Image:</b> <?= $event['image']; ?></p>
+
+        </br>
+        <a href="manageEvents.php" class="btn btn-outline">Back</a>
+
     <?php else: ?>
         <p>Event not found.</p>
     <?php endif; ?>

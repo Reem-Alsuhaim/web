@@ -1,17 +1,17 @@
 <?php
 session_start();
 if(!isset($_SESSION['admin_logged_in'])){ header("Location: admin.php"); exit(); }
-include("database/config.php");
+include("config.php");
 
 
-$sql = "SELECT * FROM events ORDER BY date_time ASC";
+$sql = "SELECT * FROM events ORDER BY event_date ASC";
 $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Manage Events</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style2.css">
     </head>
 <body>
 
@@ -24,10 +24,7 @@ $result = $conn->query($sql);
         <thead>
             <tr>
                 <th>Event</th>
-                <th>Date & Time</th>
-                <th>Location</th>
-                <th>Price</th>
-                <th>Tickets</th>
+                <th>Date</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -37,10 +34,7 @@ $result = $conn->query($sql);
             <?php while($row = $result->fetch_assoc()): ?>
                 <tr>
                     <td><?= htmlspecialchars($row['name']); ?></td>
-                    <td><?= htmlspecialchars($row['date_time']); ?></td>
-                    <td><?= htmlspecialchars($row['location']); ?></td>
-                    <td><?= htmlspecialchars($row['price']); ?></td>
-                    <td><?= htmlspecialchars($row['max_tickets']); ?></td>
+                    <td><?= htmlspecialchars($row['event_date']); ?></td>
 
                     <td>
                         <a href="viewEvent.php?id=<?= $row['id'] ?>">View</a> |

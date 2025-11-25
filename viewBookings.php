@@ -1,15 +1,22 @@
 <?php
 session_start();
 if(!isset($_SESSION['admin_logged_in'])){ header("Location: admin.php"); exit(); }
-include("database/config.php");
+include("config.php");
 
 
 $sql = "
-SELECT b.*, u.name AS uname, u.email, e.name AS ename, e.date_time 
+SELECT 
+    b.*,           
+    b.booking_date,    
+    u.name AS uname,  
+    u.email,          
+    e.name AS ename,    
+    e.event_date,    
+    e.event_time    
 FROM bookings b
 JOIN users u ON b.user_id = u.id
 JOIN events e ON b.event_id = e.id
-ORDER BY b.booking_date DESC
+ORDER BY b.booking_date DESC;
 ";
 $result = $conn->query($sql);
 ?>
@@ -17,7 +24,7 @@ $result = $conn->query($sql);
 <html>
 <head>
 <title>View Bookings</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="style2.css">
 </head>
 <body>
 
@@ -31,6 +38,7 @@ $result = $conn->query($sql);
 <tr>
 <th>User</th>
 <th>Email</th>
+<th>Booking Date</th>
 <th>Event</th>
 <th>Event Date</th>
 <th>Tickets</th>
@@ -44,8 +52,9 @@ $result = $conn->query($sql);
 <tr>
 <td><?= $row['uname']; ?></td>
 <td><?= $row['email']; ?></td>
+<td><?= $row['booking_date']; ?></td>
 <td><?= $row['ename']; ?></td>
-<td><?= $row['date_time']; ?></td>
+<td><?= $row['event_date']; ?></td>
 <td><?= $row['quantity']; ?></td>
 <td><?= $row['total_price']; ?></td>
 </tr>

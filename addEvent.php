@@ -9,7 +9,7 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 }
 
 // ربط قاعدة البيانات
-include("database/config.php");
+include("config.php");
 
 $error = "";
 $success = "";
@@ -17,21 +17,25 @@ $success = "";
 if (isset($_POST['add'])) {
 
     $name        = trim($_POST['name']);
-    $date_time   = trim($_POST['date_time']);
+    $dt = $_POST['date_time']; // قيمة من الفورم: "YYYY-MM-DDTHH:MM"
+    $event_date = date('Y-m-d', strtotime($dt)); // YYYY-MM-DD
+    $event_time = date('H:i:s', strtotime($dt)); // HH:MM:SS
+
     $location    = trim($_POST['location']);
     $price       = $_POST['price'];
-    $max_tickets = $_POST['max_tickets'];
-    $image       = trim($_POST['image']); // اختياري (اسم ملف الصورة فقط)
+    $max_tickets = $_POST['available'];
+    $description = $_POST['description'];
+    $image       = trim($_POST['image']); // 
 
     // تحقق بسيط
-    if ($name === "" || $date_time === "" || $location === "" || $price === "" || $max_tickets === "") {
-        $error = "All fields except image are required.";
+    if ($name === "" || $event_date === "" || $event_time === "" || $location === "" || $price === "" || $max_tickets === "" || $image === "" || $description === "") {
+        $error = "All fields are required.";
     } else {
         // تحويل date_time لصيغة MySQL لو احتجنا
         // هنا نثق إن الـ input type="datetime-local" راح يرجع صيغة مناسبة
-        $stmt = $conn->prepare("INSERT INTO events (name, date_time, location, price, max_tickets, image)
-                                VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssdis", $name, $date_time, $location, $price, $max_tickets, $image);
+        $stmt = $conn->prepare("INSERT INTO events (name, event_date, event_time, location, price, available, image , description)
+                                VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssdiss", $name, $event_date, $event_time, $location, $price, $max_tickets, $image, $description);
         
         if ($stmt->execute()) {
             // بعد الإضافة، رجّعيه لصفحة إدارة الفعاليات
@@ -49,7 +53,7 @@ if (isset($_POST['add'])) {
     <meta charset="UTF-8">
     <title>Add Event</title>
     <!-- لو فولدر css داخل web، خليه css/style.css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style2.css">
     </head>
 <body>
 
@@ -76,10 +80,13 @@ if (isset($_POST['add'])) {
         <input type="number" step="0.01" name="price" required>
 
         <label>Maximum Tickets</label>
-        <input type="number" name="max_tickets" required>
+        <input type="number" name="available" required>
 
-        <label>Image (optional - file name only)</label>
-        <input type="text" name="image" placeholder="example.jpg">
+        <label>Description</label>
+        <input type="text" name="description" required>
+
+        <label>Image (file name only)</label>
+        <input type="text" name="image" placeholder="example.jpg" required>
 
         <button type="submit" name="add" class="btn btn-primary">Add Event</button>
     </form>

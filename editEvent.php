@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['admin_logged_in'])){ header("Location: admin.php"); exit(); }
-include("database/config.php");
+include("config.php");
 
 
 $id = $_GET['id'] ?? 0;
@@ -15,16 +15,19 @@ $error = "";
 
 if(isset($_POST['update'])){
     $name = $_POST['name'];
-    $dt   = $_POST['date_time'];
+    $ed   = $_POST['event_date'];
+    $et   = $_POST['event_time'];
     $loc  = $_POST['location'];
-    $price= $_POST['price'];
-    $max  = $_POST['max_tickets'];
+    $price = $_POST['price'];
+    $max  = $_POST['available'];
+    $des  = $_POST['description'];
+    $img  = $_POST['image'];
 
-    if($name === "" || $dt === "" || $loc === ""){
+    if($name === "" || $ed === "" ||$et === "" || $loc === "" || $price === "" || $max === "" || $des === "" || $img === ""){
         $error = "All fields are required.";
     } else {
-        $stmt2 = $conn->prepare("UPDATE events SET name=?, date_time=?, location=?, price=?, max_tickets=? WHERE id=?");
-        $stmt2->bind_param("sssddi", $name, $dt, $loc, $price, $max, $id);
+        $stmt2 = $conn->prepare("UPDATE events SET name=?, event_date=?, event_time=?, location=?, price=?, available=? , description=? , image=? WHERE id=?");
+        $stmt2->bind_param("ssssdissi", $name, $ed, $et, $loc, $price, $max, $des , $img , $id);
         $stmt2->execute();
 
         header("Location: manageEvents.php");
@@ -36,7 +39,7 @@ if(isset($_POST['update'])){
 <html>
 <head>
     <title>Edit Event</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style2.css">
     </head>
 <body>
 <?php include "admin_sidebar.php"; ?>
@@ -53,9 +56,13 @@ if(isset($_POST['update'])){
     <label>Name</label>
     <input type="text" name="name" value="<?= $event['name']; ?>" required>
 
-    <label>Date & Time</label>
-    <input type="datetime-local" name="date_time"
-     value="<?= date('Y-m-d\TH:i', strtotime($event['date_time'])); ?>" required>
+    <label>Date</label>
+    <input type="date" name="event_date"
+        value="<?= date('Y-m-d', strtotime($event['event_date'])); ?>" required>
+
+    <label>Time</label>
+    <input type="time" name="event_time"
+        value="<?= date('H:i', strtotime($event['event_time'])); ?>" required>
 
     <label>Location</label>
     <input type="text" name="location" value="<?= $event['location']; ?>" required>
@@ -64,10 +71,16 @@ if(isset($_POST['update'])){
     <input type="number" name="price" value="<?= $event['price']; ?>" required>
 
     <label>Max Tickets</label>
-    <input type="number" name="max_tickets" value="<?= $event['max_tickets']; ?>" required>
+    <input type="number" name="available" value="<?= $event['available']; ?>" required>
+
+    <label>Description</label>
+    <input type="text" name="description" value="<?= $event['description']; ?>" required>
+
+    <label>Image</label>
+    <input type="text" name="image" value="<?= $event['image']; ?>" required>
 
     <button type="submit" name="update" class="btn btn-primary">Update Event</button>
-
+    <a href="manageEvents.php" class="btn btn-outline">Back</a>
 </form>
 
 </main>

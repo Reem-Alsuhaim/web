@@ -3,7 +3,7 @@
 
 $host = "localhost";
 $user = "root";
-$pass = "root";       // هذا الافتراضي في MAMP، لو مغيرته عدليه
+$pass = "";       // هذا الافتراضي في MAMP، لو مغيرته عدليه
 $db   = "event_booking";
 
 $conn = new mysqli($host, $user, $pass, $db);
