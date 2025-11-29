@@ -88,7 +88,7 @@ $currentDateTime = date("Y-m-d H:i:s");
 <head>
     <meta charset="UTF-8">
     <title>Cart - Event Booking</title>
-    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="style4.css">
     <link rel="stylesheet" 
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -98,8 +98,8 @@ $currentDateTime = date("Y-m-d H:i:s");
 
 <header>
     <div class="header-logo">
-        <img src="images/logo.png" alt="Logo" class="logo">
-        <span>Event Booking System</span>
+        <img src="sixflags.png" class="logo" alt="Logo">
+        <span>Six Flags</span>
     </div>
 
     <div class="welcome-text">
@@ -204,7 +204,7 @@ $currentDateTime = date("Y-m-d H:i:s");
 </main>
 
 <footer>
-    <p>© Event Booking System — <?php echo date("Y"); ?></p>
+    <p>©  Six Flags Qiddiya. All Rights Reserved. — <?php echo date("Y"); ?></p>
 </footer>
 
 </body>

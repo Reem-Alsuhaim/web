@@ -340,7 +340,7 @@ body {
             <p>Get ready for the thrill — your adventure starts now!  
                Don’t miss the excitement </p>
 
-            <a class="book-btn" href="booking.php">Start Booking</a>
+            <a class="book-btn" href="home.php">Start Booking</a>
         </div>
     </div>
 </section>
