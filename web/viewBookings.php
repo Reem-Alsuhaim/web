@@ -60,8 +60,8 @@ $result = $conn->query($sql);
 </tr>
 <?php endwhile; ?>
 <?php else: ?>
-<tr><td colspan="6">No bookings yet.</td></tr>
-<?php endif; ?>
+    <tr><td colspan="7" style="text-align:center;">No bookings yet.</td></tr>
+    <?php endif; ?>
 
 </tbody>
 </table>

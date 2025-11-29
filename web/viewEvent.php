@@ -35,7 +35,7 @@ $event = $stmt->get_result()->fetch_assoc();
         <p><b>Image:</b> <?= $event['image']; ?></p>
 
         </br>
-        <a href="manageEvents.php" class="btn btn-outline">Back</a>
+        <a href="manageEvents.php" class="admin-back-btn">Back</a>
 
     <?php else: ?>
         <p>Event not found.</p>
