@@ -3,7 +3,7 @@
 //Database connection settings
 $host = "localhost";
 $user = "root";
-$pass = "";      
+$pass = "root";      
 $db   = "event_booking";
 //Create connection to MySQL database
 $conn = new mysqli($host, $user, $pass, $db);

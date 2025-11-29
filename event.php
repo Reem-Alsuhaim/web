@@ -83,8 +83,8 @@ if (isset($_POST['add_to_cart'])) {
 <body>
 
 <header>
-    <div class="header-logo">
-        <img src="sixflags.png" class="logo" alt="Logo">
+   <div class="header-logo">
+        <img src="image/sixflags.png" class="logo" alt="Logo">
         <span>Six Flags</span>
     </div>
 

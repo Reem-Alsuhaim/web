@@ -32,7 +32,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 <header>
     <div class="header-logo">
-        <img src="sixflags.png" class="logo" alt="Logo">
+        <img src="image/sixflags.png" class="logo" alt="Logo">
         <span>Six Flags</span>
     </div>
 

@@ -31,9 +31,13 @@ $event = $stmt->get_result()->fetch_assoc();
         <p><b>Location:</b> <?= $event['location']; ?></p>
         <p><b>Price:</b> <?= $event['price']; ?></p>
         <p><b>Max Tickets:</b> <?= $event['available']; ?></p>
-        <p><b>Description:</b> <?= $event['description']; ?></p>
-        <p><b>Image:</b> <?= $event['image']; ?></p>
-
+        <p style= "white-space: pre-wrap;" ><b>Description:</b> <?= $event['description']; ?></p>
+        <p style="text-align: center;">
+            <img width="50%" 
+                style="border: 3px solid #000; border-radius: 15px;"
+                src="/web/image/<?php echo htmlspecialchars($event['image']); ?>"
+                alt="<?php echo htmlspecialchars($event['image']); ?>">
+        </p>
         </br>
         <a href="manageEvents.php" class="admin-back-btn">Back</a>
 

@@ -93,7 +93,7 @@ body {
 =========================================== */
 .hero {
     height: 100vh;
-    background: url('hero-bg.png') center/cover no-repeat;
+    background: url('image/hero-bg.png') center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -291,7 +291,7 @@ body {
 <header class="header">
     <nav class="nav-container">
 
-        <img src="sixflags.png" class="logo-img">
+        <img src="image/sixflags.png" class="logo-img">
 
         <ul class="nav-menu">
             <li><a href="#home">Home</a></li>
@@ -301,8 +301,8 @@ body {
         </ul>
 
         <div class="right-logos">
-            <img src="qiddiya.png">
-            <img src="vision2030.png">
+            <img src="image/qiddiya.png">
+            <img src="image/vision2030.png">
         </div>
 
     </nav>
@@ -331,7 +331,7 @@ body {
 <!-- BOOK NOW -->
 <section class="book-banner" id="book">
     <div class="book-left">
-        <img src="boy.png">
+        <img src="image/boy.png">
     </div>
 
     <div class="book-right">
@@ -500,10 +500,10 @@ body {
 <script>
 /* RIDES DATA */
 const rides = [
-    { title: "Steam Racer", img: "play1.png", desc: "The iconic steampunk coaster of Qiddiya." },
-    { title: "Orbital Spin", img: "play2.png", desc: "A thrilling spinning experience with neon lights." },
-    { title: "Falcon Loop", img: "play3.png", desc: "A high-speed coaster with insane drops." },
-    { title: "Carousel Kids", img: "play4.png", desc: "A gentle and fun ride for families." }
+    { title: "Steam Racer", img: "image/Iron_Rattler.png", desc: "The iconic steampunk coaster of Qiddiya." },
+    { title: "Orbital Spin", img: "image/Gyrospin.png", desc: "A thrilling spinning experience with neon lights." },
+    { title: "Falcon Loop", img: "image/Spitfire.jpg", desc: "A high-speed coaster with insane drops." },
+    { title: "Carousel Kids", img: "image/Arabian_Carousel.jpg", desc: "A gentle and fun ride for families." }
 ];
 
 const carousel = document.getElementById("carousel");
