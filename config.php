@@ -1,11 +1,11 @@
 <?php
-// database/config.php
-
+//database/config.php
+//Database connection settings
 $host = "localhost";
 $user = "root";
-$pass = "";       // هذا الافتراضي في MAMP، لو مغيرته عدليه
+$pass = "";      
 $db   = "event_booking";
-
+//Create connection to MySQL database
 $conn = new mysqli($host, $user, $pass, $db);
 
 if ($conn->connect_error) {
