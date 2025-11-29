@@ -73,15 +73,17 @@ if (isset($_POST['add_to_cart'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo htmlspecialchars($event['name']); ?> - Event Booking</title>
-    <link rel="stylesheet" href="style4.css">
-    <link rel="stylesheet" 
+    <title><?php echo htmlspecialchars($event['name']); ?> - Event Booking</title> <!-- Set dynamic page title based on event name -->
+    <link rel="stylesheet" href="style4.css"> <!-- Main Stylesheet -->
+    <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 </head>
 <body>
-
+<!-- ==========================================
+     HEADER (Navigation + Logo + User)
+========================================== -->
 <header>
     <div class="header-logo">
         <img src="sixflags.png" class="logo" alt="Logo">
@@ -91,8 +93,9 @@ if (isset($_POST['add_to_cart'])) {
     <div class="welcome-text">
         <span>Welcome <?php echo htmlspecialchars($userName); ?>.</span>
     </div>
-
+ <!-- Header Navigation Buttons -->
     <div class="user-actions">
+         <!-- If user is logged in -->
         <?php if (isset($_SESSION['user_id'])): ?>
             <a href="cart.php">
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -110,42 +113,46 @@ if (isset($_POST['add_to_cart'])) {
         <?php endif; ?>
     </div>
 </header>
-
+<!-- ==========================================
+     MAIN EVENT PAGE CONTENT
+========================================== -->
 <main>
     <section class="event-details-section">
 
         <div class="event-container">
 
-             
+               <!-- Back Button -->
             <a href="home.php" class="back-btn">
                 <i class="fa-solid fa-caret-left"></i>
             </a>
 
-           
+           <!-- Event Image -->
             <div class="event-image">
                 <img src="image/<?php echo htmlspecialchars($event['image']); ?>" alt="<?php echo htmlspecialchars($event['image']); ?>">
             </div>
 
-           
+             <!-- Event Details Section -->
             <div class="event-details">
+                <!-- Event Name -->
                 <h1><?php echo htmlspecialchars($event['name']); ?></h1>
-
+                <!-- Event Info -->
                 <p><strong>Date:</strong> <?= htmlspecialchars($event['event_date']); ?></p>
                 <p><strong>Time:</strong> <?= htmlspecialchars($event['event_time']); ?></p>
                 <p><strong>Location:</strong> <?= htmlspecialchars($event['location']); ?></p>
-                <p style="white-space: pre-wrap;"><strong>Description:</strong> <?= htmlspecialchars($event['description']); ?></p>
+                <p style="white-space: pre-wrap;"><strong>Description:</strong> <?= htmlspecialchars($event['description']); ?></p>  <!-- Description (supports multi-line text) -->
                 <p><strong>Price:</strong> <?= $event['price']; ?></p>
                 <p><strong>Available:</strong> <?= $availableTickets; ?></p>
-
+                <!-- Add to Cart Form -->
                 <form method="POST">
                     <label>Number of tickets:</label>
+                     <!-- Limit input by available tickets -->
                     <input type="number" name="qty"
                         min="1"
                         max="<?php echo $availableTickets; ?>"
                         required>
                     <button type="submit" name="add_to_cart" class="Btn-type2">Add to Cart</button>
                 </form>
-
+                   <!-- Error + Success Messages -->
                 <?php if ($error_msg) echo "<p class='error'>$error_msg</p>"; ?>
                 <?php if ($success_msg) echo "<p class='success'>$success_msg</p>"; ?>
             </div>
@@ -153,7 +160,9 @@ if (isset($_POST['add_to_cart'])) {
         </div>
     </section>
 </main>
-
+<!-- ==========================================
+     FOOTER
+========================================== -->
 <footer>
     <p>©  Six Flags Qiddiya. All Rights Reserved. — <?php echo date("Y"); ?></p>
 </footer>
