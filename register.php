@@ -51,18 +51,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
 
+<!-- ============================
+     PAGE WRAPPER
+============================= -->
 <div class=login-page>
 <div class="auth-box">
+    <!-- Page Heading -->
     <h2>Create Account</h2>
 
     <?php
     if (!empty($errors)) {
         echo "<div class='error'>";
-        foreach ($errors as $e) echo "<p>$e</p>";
+        foreach ($errors as $e) echo "<p>$e</p>";  // Loop to display each error message
         echo "</div>";
     }
     ?>
-
+    <!-- ============================
+         REGISTRATION FORM
+    ============================= -->
     <form method="POST" action="">
         <input type="text" name="name" placeholder="Full Name">
         <input type="email" name="email" placeholder="Email Address">
@@ -70,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <input type="password" name="confirm" placeholder="Confirm Password">
         <button type="submit">Register</button>
     </form>
-
+  <!-- Link to Login Page -->
     <div class="link">
         Already have an account? <a href="index.php">Login here</a>
     </div>
