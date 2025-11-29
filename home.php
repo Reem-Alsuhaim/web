@@ -21,27 +21,35 @@ while ($row = mysqli_fetch_assoc($result)) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Page Title -->
     <title>Home - Event Booking System</title>
+        <!-- Responsive Design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Main CSS File -->
     <link rel="stylesheet" href="style4.css">
+     <!-- Icons -->
     <link rel="stylesheet" 
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 </head>
 <body>
-
+<!-- ======================================
+     HEADER (Logo + Welcome + Navigation)
+====================================== -->
 <header>
     <div class="header-logo">
+         <!-- Website logo -->
         <img src="sixflags.png" class="logo" alt="Logo">
         <span>Six Flags</span>
     </div>
-
+<!-- Show user name if logged in -->
     <div class="welcome-text">
         <span>Welcome <?php echo htmlspecialchars($userName); ?>.</span>
     </div>
 
     <div class="user-actions">
+           <!-- If user is logged in: show cart + logout -->
         <?php if (isset($_SESSION['user_id'])): ?>
             <a href="cart.php">
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -59,12 +67,14 @@ while ($row = mysqli_fetch_assoc($result)) {
         <?php endif; ?>
     </div>
 </header>
-
-
+<!-- ======================================
+     MAIN CONTENT: EVENTS GRID
+====================================== -->
 <main>
     <section class="events-grid">
+        <!-- Loop through all events and display them -->
         <?php foreach($events as $event) { ?>
-            <div class="event-card" style="background-image: url('image/<?php echo htmlspecialchars($event['image']); ?>');">
+            <div class="event-card" style="background-image: url('image/<?php echo htmlspecialchars($event['image']); ?>');"> <!-- Event card with background image -->
 
                 <div class="event-info">
                     <h3><?php echo htmlspecialchars($event['name']); ?></h3>
@@ -80,7 +90,9 @@ while ($row = mysqli_fetch_assoc($result)) {
         <?php } ?>
     </section>
 </main>
-
+<!-- ======================================
+     FOOTER
+====================================== -->
 <footer>
     <p>©  Six Flags Qiddiya. All Rights Reserved. — <?php echo date("Y"); ?></p>
 </footer>
