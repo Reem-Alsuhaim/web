@@ -45,10 +45,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<div class=login-page>
 <div class="auth-box">
     <h2>Create Account</h2>
 
@@ -71,6 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="link">
         Already have an account? <a href="index.php">Login here</a>
     </div>
+</div>
 </div>
 
 </body>

@@ -88,37 +88,43 @@ $currentDateTime = date("Y-m-d H:i:s");
 <head>
     <meta charset="UTF-8">
     <title>Cart - Event Booking</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
 <header>
-<div class="header-logo">
-    <a href="home.php">
+    <div class="header-logo">
         <img src="images/logo.png" alt="Logo" class="logo">
-    </a>
-</div>
-
-<div class="header-title">
-    <a href="home.php">
         <span>Event Booking System</span>
-    </a>
-</div>
+    </div>
 
-
-    <div>
+    <div class="welcome-text">
         <span>Welcome <?php echo htmlspecialchars($userName); ?>.</span>
-        <a href="cart.php">Cart</a>
-        <a href="logout.php">Logout</a>
+    </div>
+
+    <div class="user-actions">
+        <a href="cart.php">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Cart
+        </a>
+        <a href="logout.php">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </a>
     </div>
 </header>
 
 <main>
     <section class="cart-section">
 
-        <a href="home.php">
-        <img src="images/back-arrow.png" alt="Back" style="width:20px; height:20px;">
+         <a href="home.php" class="back-btn">
+                <i class="fa-solid fa-caret-left"></i>
         </a>
+
 
         <h1>Your Cart</h1>
         <p><strong>Current Date & Time:</strong> <?php echo $currentDateTime; ?></p>
@@ -154,12 +160,12 @@ $currentDateTime = date("Y-m-d H:i:s");
                 <button type="submit" name="reserve">Reserve Tickets</button>
             </form>
 
-            <form method="POST" style="display:inline;">
+            <form method="POST" >
                 <button type="submit" name="empty_cart" class="btn-empty">Empty Cart</button>
             </form>
 
             <?php if ($success_msg) { ?>
-                <p class="message success"><?php echo htmlspecialchars($success_msg); ?></p>
+                <p class="success"><?php echo htmlspecialchars($success_msg); ?></p>
             <?php } ?>
 
         <?php } else { ?>

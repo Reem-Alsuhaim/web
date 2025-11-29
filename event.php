@@ -74,54 +74,76 @@ if (isset($_POST['add_to_cart'])) {
 <head>
     <meta charset="UTF-8">
     <title><?php echo htmlspecialchars($event['name']); ?> - Event Booking</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
 <header>
-<div class="header-logo">
-    <a href="home.php">
+    <div class="header-logo">
         <img src="images/logo.png" alt="Logo" class="logo">
-    </a>
-</div>
-
-<div class="header-title">
-    <a href="home.php">
         <span>Event Booking System</span>
-    </a>
-</div>
+    </div>
 
-<div>
-    <span>Welcome <?php echo htmlspecialchars($userName); ?>.</span>
-    <a href="cart.php">Cart</a>
-    <a href="logout.php">Logout</a>
-</div>
+    <div class="welcome-text">
+        <span>Welcome <?php echo htmlspecialchars($userName); ?>.</span>
+    </div>
+
+    <div class="user-actions">
+        <a href="cart.php">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Cart
+        </a>
+        <a href="logout.php">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </a>
+    </div>
 </header>
 
 <main>
-    <section class="event-details">
+    <section class="event-details-section">
 
-        <!-- زر الرجوع للهوم -->
-        <a href="home.php">
-            <img src="images/back-arrow.png" alt="Back" style="width:20px; height:20px;">
-        </a>
+        <div class="event-container">
 
-        <h1><?php echo htmlspecialchars($event['name']); ?></h1>
-        <p><strong>Date:</strong> <?php echo htmlspecialchars($event['event_date']); ?></p>
-        <p><strong>Time:</strong> <?php echo htmlspecialchars($event['event_time']); ?></p>
-        <p><strong>Location:</strong> <?php echo htmlspecialchars($event['location']); ?></p>
-        <p><strong>Description:</strong> <?php echo htmlspecialchars($event['description']); ?></p>
-        <p><strong>Price:</strong> <?php echo $event['price']; ?></p>
-        <p><strong>Available:</strong> <?php echo $availableTickets; ?></p>
+             <!-- زر الرجوع للهوم -->
+            <a href="home.php" class="back-btn">
+                <i class="fa-solid fa-caret-left"></i>
+            </a>
 
-        <form method="POST">
-            <label>Number of tickets:</label>
-            <input type="number" name="qty" min="1" max="<?php echo $availableTickets; ?>" required>
-            <button type="submit" name="add_to_cart">Add to Cart</button>
-        </form>
+            <!-- صورة الحدث -->
+            <div class="event-image">
+                <img src="<?php echo htmlspecialchars($event['image']); ?>" alt="Event Image">
+            </div>
 
-        <?php if ($error_msg) { echo "<p class='error'>$error_msg</p>"; } ?>
-        <?php if ($success_msg) { echo "<p class='success'>$success_msg</p>"; } ?>
+            <!-- تفاصيل الحدث -->
+            <div class="event-details">
+                <h1><?php echo htmlspecialchars($event['name']); ?></h1>
+
+                <p><strong>Date:</strong> <?= htmlspecialchars($event['event_date']); ?></p>
+                <p><strong>Time:</strong> <?= htmlspecialchars($event['event_time']); ?></p>
+                <p><strong>Location:</strong> <?= htmlspecialchars($event['location']); ?></p>
+                <p><strong>Description:</strong> <?= htmlspecialchars($event['description']); ?></p>
+                <p><strong>Price:</strong> <?= $event['price']; ?></p>
+                <p><strong>Available:</strong> <?= $availableTickets; ?></p>
+
+                <form method="POST">
+                    <label>Number of tickets:</label>
+                    <input type="number" name="qty"
+                        min="1"
+                        max="<?php echo $availableTickets; ?>"
+                        required>
+                    <button type="submit" name="add_to_cart" class="Btn-type2">Add to Cart</button>
+                </form>
+
+                <?php if ($error_msg) echo "<p class='error'>$error_msg</p>"; ?>
+                <?php if ($success_msg) echo "<p class='success'>$success_msg</p>"; ?>
+            </div>
+
+        </div>
     </section>
 </main>
 
