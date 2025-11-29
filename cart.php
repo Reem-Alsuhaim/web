@@ -88,24 +88,26 @@ $currentDateTime = date("Y-m-d H:i:s");
 <head>
     <meta charset="UTF-8">
     <title>Cart - Event Booking</title>
-    <link rel="stylesheet" href="style4.css">
+    <link rel="stylesheet" href="style4.css">  <!-- Main Stylesheet -->
     <link rel="stylesheet" 
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">   <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">  <!-- Fonts -->
 
 </head>
 <body>
-
+<!-- ======================================
+     HEADER SECTION (Top Navigation Bar)
+====================================== -->
 <header>
     <div class="header-logo">
-        <img src="sixflags.png" class="logo" alt="Logo">
+        <img src="sixflags.png" class="logo" alt="Logo"> <!-- Site Logo -->
         <span>Six Flags</span>
     </div>
-
+  <!-- Greeting the logged-in user -->
     <div class="welcome-text">
         <span>Welcome <?php echo htmlspecialchars($userName); ?>.</span>
     </div>
-
+ <!-- Navigation Buttons -->
     <div class="user-actions">
         <a href="cart.php">
             <i class="fa-solid fa-cart-shopping"></i>
@@ -127,10 +129,10 @@ $currentDateTime = date("Y-m-d H:i:s");
 
 
         <h1>Your Cart</h1>
-        <p><strong>Current Date & Time:</strong> <?php echo $currentDateTime; ?></p>
+        <p><strong>Current Date & Time:</strong> <?php echo $currentDateTime; ?></p>  <!-- Show current date & time -->
 
         <?php if ($cartItems) { ?>
-            <table class="cart-table">
+            <table class="cart-table"> <!-- Cart Table -->
                 <thead>
                     <tr>
                         <th>Event Name</th>
@@ -153,29 +155,32 @@ $currentDateTime = date("Y-m-d H:i:s");
                     <?php } ?>
                 </tbody>
             </table>
-
+<!-- Show total price of the cart -->
             <p><strong>Total Price:</strong> <?php echo number_format($totalPrice, 2); ?> $</p>
-
+<!-- Reserve Tickets Button -->
             <form method="POST">
                 <button type="submit" name="reserve">Reserve Tickets</button>
             </form>
-
+  <!-- Empty Cart Button -->
             <form method="POST" >
                 <button type="submit" name="empty_cart" class="btn-empty">Empty Cart</button>
             </form>
-
+ <!-- Success message after booking -->
             <?php if ($success_msg) { ?>
                 <p class="success"><?php echo htmlspecialchars($success_msg); ?></p>
             <?php } ?>
 
         <?php } else { ?>
-            <p>Your cart is empty.</p>
+            <p>Your cart is empty.</p> <!-- Message if cart is empty -->
         <?php } ?>
     </section>
-
+   <!-- ============================
+         USER BOOKINGS SECTION
+    ============================= -->
     <section>
     <?php if ($bookings): ?>
     <h2>Your Bookings</h2>
+        <!-- Table showing all confirmed bookings -->
     <table class="cart-table">
         <thead>
             <tr>
@@ -202,7 +207,7 @@ $currentDateTime = date("Y-m-d H:i:s");
 </section>
 
 </main>
-
+<!--  FOOTER SECTION -->
 <footer>
     <p>©  Six Flags Qiddiya. All Rights Reserved. — <?php echo date("Y"); ?></p>
 </footer>

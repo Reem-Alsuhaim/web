@@ -1,9 +1,14 @@
 <?php
 session_start();
+
+// Restrict access to admin users only
 if(!isset($_SESSION['admin_logged_in'])){ header("Location: admin.php"); exit(); }
+
+// Load database configuration
 include("config.php");
 
 
+// Fetch all bookings with related user and event information
 $sql = "
 SELECT 
     b.*,           
@@ -48,6 +53,7 @@ $result = $conn->query($sql);
 <tbody>
 
 <?php if($result && $result->num_rows > 0): ?>
+<!-- Display each booking record -->
 <?php while($row=$result->fetch_assoc()): ?>
 <tr>
 <td><?= $row['uname']; ?></td>
@@ -60,6 +66,7 @@ $result = $conn->query($sql);
 </tr>
 <?php endwhile; ?>
 <?php else: ?>
+    <!-- Message when no bookings exist -->
     <tr><td colspan="7" style="text-align:center;">No bookings yet.</td></tr>
     <?php endif; ?>
 
