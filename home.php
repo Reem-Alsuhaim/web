@@ -2,15 +2,16 @@
 session_start();
 include 'config.php';
 
-
+// Get logged-in user's name (or Guest if not logged in)
 $userName = $_SESSION["name"] ?? "Guest";
-// جلب اسم المستخدم
 
 
-// جلب كل الأحداث من قاعدة البيانات
+
+// Fetch all events from the database
 $events = [];
 $query = "SELECT * FROM events";
 $result = mysqli_query($conn, $query);
+// Store results inside the $events array
 while ($row = mysqli_fetch_assoc($result)) {
     $events[] = $row;
 }
