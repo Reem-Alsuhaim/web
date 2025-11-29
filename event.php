@@ -10,7 +10,7 @@ if (!isset($_GET['id'])) {
 }
 $event_id = (int)$_GET['id'];
 
-// جلب بيانات الحدث من جدول events
+//Fetch event details from the events table
 $stmt = $conn->prepare("SELECT * FROM events WHERE id = ?");
 $stmt->bind_param("i", $event_id);
 $stmt->execute();
@@ -18,14 +18,14 @@ $result = $stmt->get_result();
 $event = $result->fetch_assoc();
 if (!$event) die("Event not found.");
 
-// حساب عدد التذاكر المتاحة بعد خصم الحجوزات
+//Fetch number of tickets already booked for this event
 $stmtBooked = $conn->prepare("SELECT SUM(quantity) as booked FROM bookings WHERE event_id = ?");
 $stmtBooked->bind_param("i", $event_id);
 $stmtBooked->execute();
 $resultBooked = $stmtBooked->get_result()->fetch_assoc();
 $booked = $resultBooked['booked'] ?? 0;
 
-// المتاح حالياً
+//Calculate available tickets after subtracting booked ones
 $availableTickets = $event['available'] - $booked;
 if ($availableTickets < 0) $availableTickets = 0;
 
@@ -39,7 +39,7 @@ if (isset($_POST['add_to_cart'])) {
 
     // 1) check user is login
     if (!isset($_SESSION['user_id'])) {
-        $error_msg = "⚠️ You must be logged in to add tickets to your cart.";
+        $error_msg = "You must be logged in to add tickets to your cart.";
     }
 
     // 2) make sure 1 event is added to cart
@@ -116,17 +116,17 @@ if (isset($_POST['add_to_cart'])) {
 
         <div class="event-container">
 
-             <!-- زر الرجوع للهوم -->
+             
             <a href="home.php" class="back-btn">
                 <i class="fa-solid fa-caret-left"></i>
             </a>
 
-            <!-- صورة الحدث -->
+           
             <div class="event-image">
                 <img src="image/<?php echo htmlspecialchars($event['image']); ?>" alt="<?php echo htmlspecialchars($event['image']); ?>">
             </div>
 
-            <!-- تفاصيل الحدث -->
+           
             <div class="event-details">
                 <h1><?php echo htmlspecialchars($event['name']); ?></h1>
 
