@@ -6,9 +6,7 @@
     <title>Six Flags – Attractions</title>
 
 <style>
-/* ===========================================
-   COLORS (THEME)
-=========================================== */
+/*COLORS (THEME)*/
 :root {
   --sky-light: #E3F4FF;
   --white: #ffffff;
@@ -23,9 +21,9 @@
 }
 
 
-/* RESET */
+/* Reset all margins & paddings + consistent box model */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
+/* Global Page Style */
 body {
     font-family: 'Arial', sans-serif;
     background: var(--sky-light);
@@ -33,19 +31,17 @@ body {
     overflow-x: hidden;
 }
 
-/* ===========================================
-   HEADER
-=========================================== */
+/* HEADER */
 .header {
-    position: fixed;
+    position: fixed; /* Stays at the top while scrolling */
     top: 0;
     width: 100%;
     background: rgba(255,255,255,0.85);
     backdrop-filter: blur(10px);
     border-bottom: 2px solid var(--yellow-main);
-    z-index: 1000;
+    z-index: 1000; /* Always above all sections */
 }
-
+/* Header Container Layout */
 .nav-container {
     max-width: 1400px;
     margin: auto;
@@ -54,7 +50,7 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
+/* Six Flags Logo */
 .logo-img {
     height: 60px;
 }
@@ -72,7 +68,7 @@ body {
     border-bottom: 2px solid transparent;
     transition: 0.2s ease;
 }
-
+/* Hover Underline Animation */
 .nav-menu a:hover {
     border-bottom: 2px solid var(--red-main);
 }
@@ -88,27 +84,25 @@ body {
     object-fit: contain;
 }
 
-/* ===========================================
-   HERO
-=========================================== */
+/* HERO */
 .hero {
     height: 100vh;
     background: url('hero-bg.png') center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 120px;
+    padding-top: 120px; /* Space for fixed navbar */
     text-align: center;
     position: relative;
 }
-
+/* Space for fixed navbar */
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.45);
 }
-
+/* Hero text content */
 .hero h1, .hero p {
     position: relative;
     color: white;
@@ -124,24 +118,22 @@ body {
     font-size: 20px;
 }
 
-/* ===========================================
-   ATTRACTIONS
-=========================================== */
+/*  ATTRACTIONS */
 .carousel-section {
     padding: 80px 20px 120px;
     text-align: center;
     background: linear-gradient(135deg, #FFF4C2, #FFDDEA, #EEDCFF);
     background-size: 300% 300%;
-    animation: softGradient 12s ease infinite;
+    animation: softGradient 12s ease infinite; /* Animated Gradient */
     position: relative;
 }
-
+/* Background animation */
 @keyframes softGradient {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
-
+/* Section Title */
 .carousel-title {
     font-size: 50px;
     color: var(--navy) !important;
@@ -149,7 +141,7 @@ body {
     font-weight: 900;
 }
 
-
+/* Main carousel 3D container */
 .carousel-container {
     width: 100%;
     max-width: 1600px;
@@ -157,7 +149,7 @@ body {
     height: 520px;
     position: relative;
 }
-
+/* Each carousel card wrapper */
 .carousel-item {
     position: absolute;
     width: 350px;
@@ -169,7 +161,7 @@ body {
     cursor: pointer;
     transform: translate(-50%, -50%);
 }
-
+/* Attraction Card Style */
 .card {
     width: 100%;
     height: 100%;
@@ -181,7 +173,7 @@ body {
     box-shadow: 0px 0px 0px rgba(0,0,0,0);
     transition: 0.3s ease;
 }
-
+/* Card Hover Effect */
 .card:hover {
     transform: scale(1.03);
     box-shadow: 0px 12px 35px rgba(0,0,0,0.28);
@@ -228,9 +220,7 @@ body {
 #arrowLeft { left: 30px; }
 #arrowRight { right: 30px; }
 
-/* ===========================================
-   BOOK NOW
-=========================================== */
+/*  BOOK NOW */
 .book-banner {
     display: flex;
     width: 100%;
@@ -249,13 +239,13 @@ body {
     width: 50%;
     background: var(--yellow-main);
     padding: 80px 60px;
-    transform: skewX(-8deg);
+    transform: skewX(-8deg);/* Slanted box */
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 .book-right-content { transform: skewX(8deg); }
-
+/* Book Now Title */
 .book-right h2 {
     font-size: 48px;
     font-weight:900;
@@ -290,16 +280,17 @@ body {
 <!-- HEADER (MODIFIED) -->
 <header class="header">
     <nav class="nav-container">
-
+    
+<!-- Website Logo -->
         <img src="sixflags.png" class="logo-img">
-
+  <!-- Navigation Links -->
         <ul class="nav-menu">
             <li><a href="#home">Home</a></li>
             <li><a href="#rides">Rides</a></li>
             <li><a href="#book">Book</a></li>
             <li><a href="#contact" style="font-weight:700;">Contact</a></li>
         </ul>
-
+  <!-- Right-side Logos -->
         <div class="right-logos">
             <img src="qiddiya.png">
             <img src="vision2030.png">
@@ -495,10 +486,10 @@ body {
 </section>
 
 <!-- ============================
-     🚀 JAVASCRIPT (ADDED)
+     JAVASCRIPT (ADDED)
 ============================= -->
 <script>
-/* RIDES DATA */
+/* Array of rides shown in the 3D carousel */
 const rides = [
     { title: "Steam Racer", img: "play1.png", desc: "The iconic steampunk coaster of Qiddiya." },
     { title: "Orbital Spin", img: "play2.png", desc: "A thrilling spinning experience with neon lights." },
@@ -508,7 +499,7 @@ const rides = [
 
 const carousel = document.getElementById("carousel");
 let index = 0;
-
+/* Build the carousel cards dynamically */
 function buildCarousel() {
     rides.forEach(ride => {
         const item = document.createElement("div");
@@ -524,32 +515,32 @@ function buildCarousel() {
 
     updateCarousel();
 }
-
+/* Controls the 3D animation of each card */
 function updateCarousel() {
     const items = document.querySelectorAll(".carousel-item");
 
     items.forEach((item, i) => {
         const offset = (i - index + rides.length) % rides.length;
-
+ /* Center card (main focus) */
         if (offset === 0) {
             item.style.transform = "translate(-50%, -50%) translateZ(0) scale(1)";
             item.style.opacity = "1";
         }
-        else if (offset === 1 || offset === rides.length - 1) {
+        else if (offset === 1 || offset === rides.length - 1) { /* Left & Right Cards */
             const side = offset === 1 ? 1 : -1;
             item.style.transform =
               `translate(-50%, -50%) translateX(${side * 350}px) translateZ(-200px) scale(0.8) rotateY(${side * 20}deg)`;
             item.style.opacity = "0.8";
         }
         else {
-            item.style.transform = "translate(-50%, -50%) translateZ(-500px) scale(0.5)";
+            item.style.transform = "translate(-50%, -50%) translateZ(-500px) scale(0.5)";  /* Cards at back (hidden) */
             item.style.opacity = "0";
         }
     });
 }
 
 buildCarousel();
-
+/* Auto slide every 4 seconds */
 setInterval(() => {
     index = (index + 1) % rides.length;
     updateCarousel();
@@ -581,4 +572,3 @@ document.getElementById("arrowRight").onclick = () => {
 
 </body>
 </html>
-
