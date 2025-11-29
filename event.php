@@ -116,7 +116,7 @@ if (isset($_POST['add_to_cart'])) {
 
             <!-- صورة الحدث -->
             <div class="event-image">
-                <img src="<?php echo htmlspecialchars($event['image']); ?>" alt="Event Image">
+                <img src="image/<?php echo htmlspecialchars($event['image']); ?>" alt="<?php echo htmlspecialchars($event['image']); ?>">
             </div>
 
             <!-- تفاصيل الحدث -->
@@ -126,7 +126,7 @@ if (isset($_POST['add_to_cart'])) {
                 <p><strong>Date:</strong> <?= htmlspecialchars($event['event_date']); ?></p>
                 <p><strong>Time:</strong> <?= htmlspecialchars($event['event_time']); ?></p>
                 <p><strong>Location:</strong> <?= htmlspecialchars($event['location']); ?></p>
-                <p><strong>Description:</strong> <?= htmlspecialchars($event['description']); ?></p>
+                <p style="white-space: pre-wrap;"><strong>Description:</strong> <?= htmlspecialchars($event['description']); ?></p>
                 <p><strong>Price:</strong> <?= $event['price']; ?></p>
                 <p><strong>Available:</strong> <?= $availableTickets; ?></p>
 
