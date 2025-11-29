@@ -21,7 +21,7 @@ $success_msg = "";
 if (isset($_POST['reserve']) && $cart) {
     foreach ($cart as $event_id => $qty) {
 
-        // 2) جلب سعر الحدث
+        //Fetch event price from database
         $stmtPrice = $conn->prepare("SELECT price FROM events WHERE id=?");
         $stmtPrice->bind_param("i", $event_id);
         $stmtPrice->execute();
@@ -29,18 +29,18 @@ if (isset($_POST['reserve']) && $cart) {
         $price = $priceResult['price'];
         $total = $qty * $price;
 
-        // 3) إضافة الحجز لجدول bookings
+        //Insert booking record into the bookings table
         $stmtBooking = $conn->prepare("INSERT INTO bookings (user_id, event_id, quantity, total_price, booking_date) VALUES (?, ?, ?, ?, NOW())");
         $stmtBooking->bind_param("iiid", $_SESSION['user_id'], $event_id, $qty, $total);
         $stmtBooking->execute();
     }
-
+//Clear cart after successful booking
     $_SESSION['cart'] = [];
     $cart = [];
     $success_msg = "Booking confirmed! Tickets reserved.";
 }
 
-// بعد عملية الحجز، جلب كل حجوزات هذا اليوزر
+//Fetch all bookings for the logged-in user
 $bookings = [];
 $stmtAll = $conn->prepare("
     SELECT b.id, b.user_id, b.event_id, b.quantity, b.total_price, b.booking_date, e.name as event_name
