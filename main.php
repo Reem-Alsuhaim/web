@@ -84,7 +84,7 @@ body {
     gap: 15px;
 }
 .right-logos img {
-    height: 45px;
+    height: 60px;
     object-fit: contain;
 }
 
@@ -581,3 +581,4 @@ document.getElementById("arrowRight").onclick = () => {
 
 </body>
 </html>
+
