@@ -93,14 +93,21 @@ if (isset($_POST['add_to_cart'])) {
     </div>
 
     <div class="user-actions">
-        <a href="cart.php">
-            <i class="fa-solid fa-cart-shopping"></i>
-            Cart
-        </a>
-        <a href="logout.php">
-            <i class="fa-solid fa-right-from-bracket"></i>
-            Logout
-        </a>
+        <?php if (isset($_SESSION['user_id'])): ?>
+            <a href="cart.php">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
+            </a>
+            <a href="logout.php">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+        <?php else: ?>
+            <a href="index.php">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login
+            </a>
+        <?php endif; ?>
     </div>
 </header>
 

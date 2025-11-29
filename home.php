@@ -40,7 +40,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         <span>Welcome <?php echo htmlspecialchars($userName); ?>.</span>
     </div>
 
-        <div class="user-actions">
+    <div class="user-actions">
         <?php if (isset($_SESSION['user_id'])): ?>
             <a href="cart.php">
                 <i class="fa-solid fa-cart-shopping"></i>

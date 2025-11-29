@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 26 نوفمبر 2025 الساعة 01:27
+-- Generation Time: 29 نوفمبر 2025 الساعة 21:36
 -- إصدار الخادم: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -59,12 +59,13 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `name`, `image`, `event_date`, `event_time`, `location`, `description`, `available`, `price`) VALUES
-(9, 'Tech Conference 2025', 'tech_conf.jpg', '2025-12-06', '09:00:00', 'Convention Center', 'A conference showcasing the latest in technology and innovation.', 150, 100.00),
-(10, 'Winter Music Gala', 'winter_music.jpg', '2025-12-05', '19:00:00', 'Grand Theater', 'An enchanting evening of classical and contemporary music.', 200, 75.00),
-(11, 'Food & Wine Festival', 'food_wine.jpg', '2025-12-04', '12:00:00', 'Downtown Park', 'Taste exquisite dishes and fine wines from around the world.', 250, 50.00),
-(12, 'Art Exhibition', 'art_exhibit.jpg', '2025-12-03', '10:00:00', 'City Art Gallery', 'Explore artworks from renowned local and international artists.', 100, 40.00),
-(13, 'Marathon 2025', 'marathon.jpg', '2025-12-02', '06:00:00', 'City Streets', 'Join the annual city marathon and test your endurance.', 500, 25.00),
-(14, 'Film Premiere Night', 'film_premiere.jpg', '2025-12-01', '20:00:00', 'Cinema Palace', 'Premiere of the most anticipated film of the year with celebrities.', 120, 60.00);
+(9, 'Into the Deep', 'Into_the_Deep.jpg', '2025-12-06', '09:00:00', 'Discovery Springs', 'Ride type: Family ride\n\nThrill level: Mild thrill\n\nAbout the ride :\nJourney into mysterious caves on this interactive and dark ride experience, featuring dimmed lighting and interactive elements.\n\nRide features :\n•Dark ride\n•Interactive\n\nHeight requirement:\n100–200 cm\n\nAdult companion:\nRequired if below 130 cm', 150, 100.00),
+(10, 'Arabian Carousel', 'Arabian_Carousel.jpg', '2025-12-05', '19:00:00', 'Grand Exposition', 'Ride type: Family ride\n\nThrill level: Low thrill\n\nAbout the ride:\nAs the lights dim and the music begins, guests astride prancing horses and camels twirl to the sounds of an Arabian melody.\n\nRide features:\n•Flat ride\n\nHeight requirement:\nMin 90 cm\n\nAdult companion:\nRequired if below 130 cm', 200, 75.00),
+(11, 'Iron Rattler', 'Iron_Rattler.jpg', '2025-12-04', '12:00:00', 'Steam Town', 'Teeter over the edge and peer into the depths on Iron Rattler, a fast and wild tilt coaster at the end of Gear Street. The Iron Rattler Mining Company promises an exhilarating adventure as they board the coaster and follow the exciting path of many prospectors before them.\n\n\nRide Type: Thrill\nThrill Level: Extreme\n\nRide Features:\n• Record-breaking\n• Roller coaster\n\nHeight Requirement: 120–205 cm\nAdult Companion: Required for riders below 130 cm', 250, 50.00),
+(12, 'Spitfire', 'Spitfire.jpg', '2025-12-03', '10:00:00', 'Valley of Fortune', 'Ride type: Thrill\n\nThrill level: Extreme\n\nAbout the ride:\nSpitfire is a record-shredding triple-launch roller coaster! Stunt pilots are welcomed, ready to embark on a \"thrill-seekers\" dream. They must skillfully pilot their plane for the opportunity to win the coveted Golden Falcon Statue.\nThe victory comes with a great challenge and presents an even greater thrill as pilots are faced with the task of completing the most exhilarating plane stunt of all.\n\nRide features:\n•Record breaking\n•Roller coaster\n\nHeight requirement:\n130–196 cm', 100, 40.00),
+(13, 'Sirocco Tower', 'Sirocco_Tower.jpg', '2025-12-02', '06:00:00', 'City of Thrills', 'Ride type: Thrill\n\nThrill level: Extreme\n\nAbout the ride:\nExperience the ultimate thrill with a towering ride that launches sky-high, then plummets in an exhilarating freefall. Sirocco Tower powers the City of Thrills by harnessing the Sirocco winds that have graced the land for centuries.\n\nRide features:\n•Record breaking\n•Drop tower\n\nHeight requirement:\n130–205 cm', 500, 25.00),
+(14, 'Gyrospin', 'Gyrospin.jpg', '2025-12-01', '20:00:00', 'Grand Exposition', 'Ride type: Thrill\n\nThrill level: Extreme\n\nAbout the ride:\nA thrilling ride that soars to great heights and spinning G-forces. A true credit to Mr. Tesla’s futurist vision.\n\nRide features\n•Record breaking\n•Flat ride\n\nHeight requirement:\n135–200 cm', 120, 60.00),
+(15, 'Aquatopia', 'Aquatopia.png', '2025-11-01', '08:00:00', 'Discovery Springs', 'Ride type: Kids ride\r\n\r\nThrill level: Low thrill\r\n\r\nAbout the attraction\r\nDive into a world of watery fun with this aquatic playground, Aquatopia. This is the perfect spot for young adventurers and their families to splash, play, and explore together.\r\n\r\n:Ride features\r\nPlayground•\r\n\r\n:Height requirement\r\nN/A\r\n\r\n:Adult companion\r\nRequired if below 130 cm', 200, 70.00);
 
 -- --------------------------------------------------------
 
@@ -112,19 +113,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- قيود الجداول المُلقاة.
@@ -136,7 +137,7 @@ ALTER TABLE `users`
 ALTER TABLE `bookings`
   ADD CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `bookings_ibfk_2` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`) ON DELETE CASCADE;
-
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
