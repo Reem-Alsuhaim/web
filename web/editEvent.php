@@ -80,9 +80,10 @@ if(isset($_POST['update'])){
     <input type="text" name="image" value="<?= $event['image']; ?>" required>
 
     <button type="submit" name="update" class="btn btn-primary">Update Event</button>
-    <a href="manageEvents.php" class="btn btn-outline">Back</a>
-</form>
+    <a href="manageEvents.php" class="admin-back-btn">Back</a>
+    </form>
 
 </main>
 </body>
 </html>
+

@@ -89,6 +89,8 @@ if (isset($_POST['add'])) {
         <input type="text" name="image" placeholder="example.jpg" required>
 
         <button type="submit" name="add" class="btn btn-primary">Add Event</button>
+        <a href="manageEvents.php" class="admin-back-btn">Back</a>
+
     </form>
 
 </main>
@@ -96,3 +98,4 @@ if (isset($_POST['add'])) {
 </div>
 </body>
 </html>
+

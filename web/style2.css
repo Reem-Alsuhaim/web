@@ -1,20 +1,19 @@
-/* ========= 1) أساسيات و ألوان عامة ========= */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
 
 :root {
-  --bg-main: #050816;
-  --bg-elevated: #0b1020;
-  --bg-card: #111827;
-  --accent-pink: #ff3b7f;
-  --accent-cyan: #00f5ff;
-  --accent-yellow: #ffd166;
-  --text-main: #f9fafb;
-  --text-muted: #9ca3af;
-  --border-soft: #1f2937;
-  --danger: #ef4444;
-  --success: #22c55e;
-  --shadow-soft: 0 18px 35px rgba(0,0,0,0.6);
+  --yellow-main: #FFD700;
+  --sky-light: #E3F4FF;
+  --white: #FFFFFF;
+  --navy: #162258;
+  --red-main: #D80000;
+  --text-dark: #222222;
+  --gray-sub: #555555;
+  --light-yellow: #FFF8CC;
+
+  --border-soft: #D3D8EA;
+  --shadow-soft: 0 10px 25px rgba(12, 31, 73, 0.12);
   --radius-lg: 18px;
   --radius-md: 12px;
   --transition-fast: 0.15s ease-out;
@@ -27,526 +26,552 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  color: var(--text-main);
-  background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #000 100%);
+  color: var(--text-dark);
   min-height: 100%;
 }
 
-/* خلفية خفيفة زي أجواء الملاهي */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    radial-gradient(circle at 10% 20%, rgba(255,59,127,0.12) 0, transparent 50%),
-    radial-gradient(circle at 80% 0%, rgba(0,245,255,0.12) 0, transparent 55%),
-    radial-gradient(circle at 50% 100%, rgba(255,209,102,0.18) 0, transparent 60%);
-  opacity: 0.9;
-  z-index: -1;
+/* ====== Unified Admin Background ====== */
+
+body {
+  background:
+    radial-gradient(circle at 0% 20%, rgba(255, 215, 0, 0.10) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(188, 222, 244, 0.55) 0%, transparent 60%),
+    linear-gradient(180deg, #e9d9fbd3 0%, #f8e9d1 35%, #e6edfcd4 100%);
 }
 
-/* ========= 2) حاويات عامة ========= */
+/* ========= Admin Login Page ========= */
 
-.container {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 24px 16px 40px;
-}
-
-h1, h2, h3 {
-  margin: 0 0 12px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-}
-
-p {
-  margin: 0 0 10px;
-  color: var(--text-muted);
-}
-
-/* ========= 3) Buttons ستايل موحد ========= */
-
-.btn {
-  display: inline-flex;
+.admin-login-body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 18px;
-  border-radius: 999px;
-  border: 0;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url('/images/background.png') center center / cover no-repeat fixed;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.admin-login-card {
+  width: 90%;
+  max-width: 520px; 
+  padding: 28px 28px 30px;
+  border-radius: 30px;
+  background: linear-gradient(145deg, rgba(252, 235, 235, 0.828), rgba(255,248,204,0.92));
+  backdrop-filter: blur(12px);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.admin-login-logo {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.28);
+  border: 3px solid rgba(255,215,0,0.7);
+}
+
+.admin-login-logo img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+/* Admin Login lable */
+.admin-login-card h2 {
+  margin: 8px 0 18px;
+  font-size: 1.7rem;
+  text-align: center;
+  color: var(--navy);
+}
+
+.admin-login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-login-card label {
+  font-size: 0.9rem;
+  color: var(--gray-sub);
+}
+
+.admin-login-card input[type="text"],
+.admin-login-card input[type="password"] {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #ccd4f0;
+  padding: 10px 12px;
   font-size: 0.95rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
-  text-decoration: none;
-  white-space: nowrap;
+  outline: none;
+  background: #f5f7ff;
+  transition: border 0.15s ease-out, box-shadow 0.15s ease-out, background 0.15s ease-out, transform 0.1s ease-out;
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, var(--accent-pink), var(--accent-cyan));
-  color: #0b1020;
-  box-shadow: 0 10px 25px rgba(0,245,255,0.4);
-}
-
-.btn-primary:hover {
-  transform: translateY(-1.5px) scale(1.01);
-  box-shadow: 0 16px 30px rgba(0,245,255,0.55);
-}
-
-.btn-danger {
-  background: linear-gradient(135deg, #b91c1c, var(--danger));
-  color: #fef2f2;
-  box-shadow: 0 10px 25px rgba(248,113,113,0.35);
-}
-
-.btn-danger:hover {
-  transform: translateY(-1.5px) scale(1.01);
-  box-shadow: 0 16px 30px rgba(248,113,113,0.5);
-}
-
-.btn-outline {
-  border: 1px solid var(--accent-cyan);
-  color: var(--accent-cyan);
-  background: transparent;
-}
-
-.btn-outline:hover {
-  background: rgba(15,118,110,0.3);
+.admin-login-card input[type="text"]:focus,
+.admin-login-card input[type="password"]:focus {
+  border-color: var(--navy);
+  background: #ffffff;
+  box-shadow: 0 0 0 1px rgba(22, 34, 88, 0.25);
   transform: translateY(-1px);
 }
 
-/* full-width button option */
-.btn-block {
-  width: 100%;
+.admin-login-card .btn.btn-primary {
+  margin-top: 6px;
+  padding: 11px 16px;
+  border-radius: 999px;
+
+  background: linear-gradient(135deg, #cee9f9d8 0%, #f5e174cd 35%, #e4daf6c3 100%);
+
+  color: var(--navy);
+  border: 2px solid #ffffff; 
+  box-shadow: 0 10px 24px rgba(22, 34, 88, 0.25);
+  font-size: 0.98rem;
+  font-weight: 600;
+  transition: transform 0.18s ease-out,
+              box-shadow 0.18s ease-out,
+              filter 0.18s ease-out;
 }
 
-/* ========= 4) فورمات عامة (Login / Edit / Add / Register) ========= */
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background: rgba(15,23,42,0.92);
-  border-radius: var(--radius-lg);
-  padding: 18px 18px 20px;
-  border: 1px solid var(--border-soft);
-  box-shadow: var(--shadow-soft);
+.admin-login-card .btn.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(22, 34, 88, 0.35);
+  filter: brightness(1.03);
 }
 
-label {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text-muted);
+
+.admin-login-card .btn.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 36px rgba(255, 215, 0, 0.8);
+  filter: brightness(1.03);
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="number"],
-input[type="datetime-local"] {
-  background: #020617;
-  border-radius: 10px;
-  border: 1px solid #1e293b;
-  padding: 9px 11px;
-  color: var(--text-main);
-  font-size: 0.9rem;
-  outline: none;
-  transition: border var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
-}
 
-input:focus {
-  border-color: var(--accent-cyan);
-  box-shadow: 0 0 0 1px rgba(0,245,255,0.4);
-  background: #020617;
-}
-
-input::placeholder {
-  color: #6b7280;
-}
-
-/* رسائل تنبيه */
-.alert {
-  padding: 10px 12px;
-  border-radius: 10px;
-  font-size: 0.85rem;
-  margin-bottom: 12px;
-}
-
-.alert-error {
-  background: rgba(248,113,113,0.08);
-  border: 1px solid rgba(248,113,113,0.6);
-  color: #fecaca;
-}
-
-.alert-success {
-  background: rgba(34,197,94,0.08);
-  border: 1px solid rgba(34,197,94,0.6);
-  color: #bbf7d0;
-}
-
-/* ========= 5) Layout الأدمن ========= */
 
 .admin-layout {
   display: flex;
   min-height: 100vh;
 }
 
-/* Sidebar */
+
 .sidebar {
-  width: 230px;
-  background: radial-gradient(circle at top left, #1f2937 0, #020617 50%, #000 100%);
-  border-right: 1px solid rgba(15,23,42,0.9);
-  padding: 18px 16px;
+  width: 240px;
+  background: var(--navy);
+  color: #ffffff;
+  padding: 20px 16px 24px;
   display: flex;
   flex-direction: column;
   gap: 18px;
+  box-shadow: 6px 0 18px rgba(22, 34, 88, 0.25);
 }
 
 .sidebar .logo {
-  font-size: 1.1rem;
+  margin: 0;
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--accent-cyan);
   text-transform: uppercase;
   letter-spacing: 0.12em;
+  color: var(--white);
 }
 
-.sidebar .menu {
+
+.menu {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
+  flex: 1;             
 }
 
-.sidebar .menu li a {
-  display: block;
-  padding: 9px 11px;
+
+.menu li a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px 9px 42px; 
   border-radius: 999px;
-  color: var(--text-muted);
+  color: rgba(255,255,255,0.9);
   font-size: 0.9rem;
   text-decoration: none;
-  transition: background var(--transition-med), color var(--transition-med), transform var(--transition-fast);
+  transition:
+    background var(--transition-med),
+    color var(--transition-med),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
-.sidebar .menu li a:hover {
-  background: linear-gradient(135deg, rgba(255,59,127,0.5), rgba(0,245,255,0.25));
-  color: #0f172a;
+.menu li a::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  color: #ffffff;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900; 
+}
+
+/*  Manage Events */
+.menu li a[href*="manageEvents.php"]::before {
+  content: "\f073"; /* calendar-days */
+}
+
+/*  Add Event */
+.menu li a[href*="addEvent.php"]::before {
+  content: "\f067"; /* plus */
+}
+
+/*  View Bookings */
+.menu li a[href*="viewBookings.php"]::before {
+  content: "\f145"; /* ticket */
+}
+
+/*  Logout */
+.menu li a[href*="logout.php"]::before {
+  content: "\f2f5"; /* fa-right-from-bracket */
+}
+
+.menu li:last-child {
+  margin-top: auto;
+}
+
+.menu li:last-child a {
+  background: rgba(216, 0, 0, 0.10);             
+  border: 1px solid rgba(216, 0, 0, 0.60);        
+  color: #faf3f3;                                 
+}
+.menu li:last-child a:hover {
+  background: rgba(216, 0, 0, 0.22);
+  color: #ffffff;
+  transform: translateX(3px) translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+
+
+/* Hover */
+.menu li a:hover {
+  background: rgba(255, 248, 204, 0.25);
   transform: translateX(3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
 }
 
-/* Main Content */
+.menu li a.active {
+  background: var(--yellow-main);
+  color: var(--navy);
+}
+
+.menu li a.active::before {
+  background: var(--white);
+  color: var(--navy);
+}
+
+
 .main-content {
   flex: 1;
   padding: 24px 24px 40px;
 }
 
-.main-content h2 {
+
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 18px;
   margin-bottom: 18px;
-  font-size: 1.3rem;
+  background: linear-gradient(120deg, rgba(227,244,255,0.96), rgba(255,248,204,0.95));
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.admin-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.admin-header-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(22,34,88,0.12);
+}
+
+.admin-header-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.admin-header-text h1 {
+  margin: 0 0 4px;
+  font-size: 1.25rem;
+  color: var(--navy);
+}
+
+.admin-header-text p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--gray-sub);
+}
+
+
+h1, h2, h3 {
+  color: var(--navy);
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.page-header h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.page-header span {
+  font-size: 0.85rem;
+  color: var(--gray-sub);
+}
+
+
+.btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-}
-
-.main-content h2::after {
-  content: "";
-  width: 55px;
-  height: 3px;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 16px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent-pink), var(--accent-cyan));
+  border: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-/* ========= 6) الجداول (Manage Events / Bookings) ========= */
+.btn .icon {
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background: var(--yellow-main);
+  color: var(--navy);
+  box-shadow: 0 8px 18px rgba(225, 204, 84, 0.564);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(207, 197, 138, 0.6);
+}
+
+.admin-back-btn {
+  display: inline-flex;              
+  align-items: center;
+  justify-content: center;
+  width: auto;                       
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 2px solid var(--navy);
+  color: var(--navy);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(3px);
+  cursor: pointer;
+  transition: 0.2s ease-out;
+}
+
+.admin-back-btn:hover {
+  background: var(--light-yellow);
+  border-color: var(--yellow-main);
+  color: var(--navy);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+
+
+.btn-danger {
+  background: var(--red-main);
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(216, 0, 0, 0.35);
+}
+
+.btn-danger:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(216, 0, 0, 0.55);
+}
+
+.actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+}
+
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 16px 16px 18px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-soft);
+}
+
 
 .table {
   width: 100%;
   border-collapse: collapse;
-  background: rgba(15,23,42,0.92);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-soft);
   font-size: 0.9rem;
 }
 
 .table thead {
-  background: linear-gradient(90deg, rgba(255,59,127,0.15), rgba(0,245,255,0.15));
+  background: var(--navy);
+  color: var(--white);
 }
 
 .table th,
 .table td {
   padding: 10px 12px;
-  border-bottom: 1px solid #111827;
   text-align: left;
+  border-bottom: 1px solid #e2e5f2;
 }
 
 .table th {
   font-weight: 500;
-  color: var(--text-muted);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   font-size: 0.78rem;
-  letter-spacing: 0.06em;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
 }
 
 .table tbody tr:nth-child(even) {
-  background-color: rgba(15,23,42,0.86);
+  background-color: #f4f7ff; 
 }
 
 .table tbody tr:hover {
-  background: rgba(30,64,175,0.35);
+  background: #fff8cc; 
 }
 
-/* روابط داخل الجدول */
+
+
 .table a {
-  color: var(--accent-cyan);
+  color: var(--navy);
   text-decoration: none;
   font-size: 0.86rem;
+  font-weight: 500;
 }
 
 .table a:hover {
-  color: var(--accent-yellow);
+  color: var(--red-main);
 }
 
-/* ========= 7) Login / Small Centered Forms ========= */
 
-.centered-auth {
-  max-width: 420px;
-  margin: 80px auto;
-}
-
-/* ========= 8) ستايل عام لواجهة اليوزر (اختياري لكن جاهز) ========= */
-
-/* Header للـ customer pages */
-.site-header {
-  width: 100%;
-  padding: 14px 24px;
+form {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: radial-gradient(circle at top, rgba(15,23,42,0.95) 0, rgba(2,6,23,0.98) 55%);
-  border-bottom: 1px solid rgba(15,23,42,0.9);
-  position: sticky;
-  top: 0;
-  z-index: 50;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.site-header .logo-mark {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.site-header .logo-mark span:first-child {
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
-  background: conic-gradient(from 220deg, var(--accent-pink), var(--accent-cyan), var(--accent-yellow), var(--accent-pink));
-  box-shadow: 0 0 18px rgba(0,245,255,0.45);
-}
-
-.site-header .logo-mark span:last-child {
-  font-weight: 600;
-  font-size: 1rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.nav-links {
-  display: flex;
-  gap: 12px;
-}
-
-.nav-links a {
+label {
   font-size: 0.85rem;
-  color: var(--text-muted);
-  text-decoration: none;
-}
-
-.nav-links a:hover {
-  color: var(--accent-cyan);
-}
-
-/* Hero / Banner */
-.hero {
-  margin: 22px auto 10px;
-  padding: 18px 18px 20px;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,64,175,0.95));
-  border: 1px solid rgba(148,163,184,0.4);
-  box-shadow: var(--shadow-soft);
-  display: grid;
-  grid-template-columns: minmax(0,2.1fr) minmax(0,1.4fr);
-  gap: 14px;
-}
-
-.hero-main h1 {
-  font-size: 1.7rem;
-  margin-bottom: 6px;
-}
-
-.hero-main p {
-  font-size: 0.92rem;
-}
-
-.hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  background: rgba(15,23,42,0.9);
-  border: 1px solid rgba(148,163,184,0.4);
-  margin-bottom: 8px;
-}
-
-.hero-tag-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: var(--accent-yellow);
-  box-shadow: 0 0 12px rgba(250,204,21,0.8);
-}
-
-/* Side "ticket" style */
-.hero-side {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-/* ========= 9) Cards للفعاليات (home.php) ========= */
-
-.card-grid {
-  margin-top: 14px;
-  display: grid;
-  grid-template-columns: repeat(3,minmax(0,1fr));
-  gap: 16px;
-}
-
-/* Responsiveness for cards */
-@media (max-width: 992px) {
-  .card-grid {
-    grid-template-columns: repeat(2,minmax(0,1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .card-grid {
-    grid-template-columns: repeat(1,minmax(0,1fr));
-  }
-}
-
-.event-card {
-  position: relative;
-  background: rgba(15,23,42,0.96);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid rgba(31,41,55,0.9);
-  box-shadow: var(--shadow-soft);
-  padding: 12px 12px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med);
-}
-
-.event-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top right, rgba(0,245,255,0.12) 0, transparent 45%);
-  opacity: 0;
-  transition: opacity var(--transition-med);
-}
-
-.event-card:hover {
-  transform: translateY(-4px) scale(1.01);
-  border-color: rgba(96,165,250,0.85);
-  box-shadow: 0 22px 45px rgba(15,23,42,0.9);
-}
-
-.event-card:hover::before {
-  opacity: 1;
-}
-
-.event-title {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.event-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  font-size: 0.82rem;
-  color: var(--text-muted);
-}
-
-.event-meta span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.event-badge {
-  align-self: flex-start;
-  margin-top: 2px;
-  padding: 3px 8px;
-  font-size: 0.75rem;
-  border-radius: 999px;
-  background: rgba(56,189,248,0.13);
-  border: 1px solid rgba(56,189,248,0.7);
-  color: #e0f2fe;
-}
-
-.price-tag {
-  margin-top: 4px;
-  font-size: 0.9rem;
   font-weight: 500;
-  color: var(--accent-yellow);
+  color: var(--gray-sub);
 }
 
-.event-actions {
-  margin-top: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="datetime-local"],
+select,
+textarea {
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #c9d0e6;
+  padding: 9px 11px;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  outline: none;
+  transition:
+    border var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background var(--transition-fast);
 }
 
-/* Book Now button on hover فقط لو حابين */
-.event-card .btn-book {
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity var(--transition-med), transform var(--transition-med);
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 1px rgba(22, 34, 88, 0.25);
 }
 
-.event-card:hover .btn-book {
-  opacity: 1;
-  transform: translateY(0);
+/* Alerts */
+
+.alert {
+  padding: 9px 11px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  margin-bottom: 10px;
 }
 
-/* ========= 10) Footer بسيط ========= */
-
-.site-footer {
-  margin-top: 30px;
-  padding: 14px 24px 24px;
-  text-align: center;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  border-top: 1px solid rgba(15,23,42,0.9);
+.alert-success {
+  background: rgba(34, 197, 94, 0.07);
+  border: 1px solid rgba(34, 197, 94, 0.45);
+  color: #14532d;
 }
 
-/* ========= 11) Responsive الأدمن ========= */
+.alert-error {
+  background: rgba(216, 0, 0, 0.08);
+  border: 1px solid rgba(216, 0, 0, 0.55);
+  color: #7f1d1d;
+}
+
+/* ========= Responsive ========= */
 
 @media (max-width: 840px) {
   .admin-layout {
@@ -557,13 +582,8 @@ input::placeholder {
     width: 100%;
     flex-direction: row;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     overflow-x: auto;
-  }
-
-  .sidebar .menu {
-    flex-direction: row;
-    flex-wrap: wrap;
   }
 
   .main-content {
@@ -571,12 +591,15 @@ input::placeholder {
   }
 }
 
-@media (max-width: 768px) {
-  .hero {
-    grid-template-columns: minmax(0,1fr);
+@media (max-width: 600px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .hero-side {
-    align-items: flex-start;
+  .admin-header-actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 }

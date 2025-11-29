@@ -26,28 +26,34 @@ if(isset($_POST['login'])){
 <head>
     <title>Admin Login</title>
     <link rel="stylesheet" href="style2.css">
-    </head>
-<body>
+</head>
+<body class="admin-login-body">
 
-<div class="container" style="max-width: 400px; margin-top: 80px;">
+<div class="admin-login-card">
 
-    <h2 style="text-align:center;">Admin Login</h2>
-
-    <?php if($error): ?>
-        <p style="color:red; text-align:center;"><?php echo $error; ?></p>
-    <?php endif; ?>
-
-    <form method="POST">
-        <label>Username:</label>
-        <input type="text" name="username" required>
-
-        <label>Password:</label>
-        <input type="password" name="password" required>
-
-        <button type="submit" name="login" class="btn btn-primary" style="width:100%;">Login</button>
-    </form>
+<div class="admin-login-logo">
+    <img src="/images/logo.png" alt="Six Flags Logo"> 
 </div>
+
+<h2>Admin Login</h2>
+
+
+        <?php if($error): ?>
+            <p class="alert-error" style="text-align:center; margin-bottom:12px;">
+                <?php echo $error; ?>
+            </p>
+        <?php endif; ?>
+
+        <form method="POST">
+            <label>Username:</label>
+            <input type="text" name="username" required>
+
+            <label>Password:</label>
+            <input type="password" name="password" required>
+
+            <button type="submit" name="login" class="btn btn-primary" style="width:100%;">Login</button>
+        </form>
+    </div>
 
 </body>
 </html>
-

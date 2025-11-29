@@ -68,7 +68,7 @@ if(isset($_POST['confirm'])){
 <p>Event not found.</p>
 <?php endif; ?>
 </br>
-<a href="manageEvents.php" class="btn btn-outline">Back</a>
+<a href="manageEvents.php" class="admin-back-btn">Back</a>
 
 </main>
 </body>
