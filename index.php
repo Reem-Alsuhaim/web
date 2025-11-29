@@ -4,30 +4,33 @@ include 'config.php';
 
 $error = "";
 
-// Handle login
+// Handle login form submission
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
+ // Get email and password from POST request
     $email = isset($_POST["email"]) ? trim($_POST["email"]) : "";
     $password = isset($_POST["password"]) ? trim($_POST["password"]) : "";
-
+// Validate required fields
     if (empty($email) || empty($password)) {
         $error = "Please fill in all fields.";
     } else {
+        // Fetch user from database using email
             $query = "SELECT * FROM users WHERE email = '$email'";
             $result = mysqli_query($conn, $query);
-
+ // Check if email exists in the database
             if (mysqli_num_rows($result) === 1) {
                 $row = mysqli_fetch_assoc($result);
+                // Verify hashed password
                 if (!empty($row["password"]) && password_verify($password, $row["password"])) {
+                      // Store user information in session
                     $_SESSION['user_id'] = $row['id'];
                     $_SESSION['name']    = $row['name'];
-                    header("Location: home.php");
+                    header("Location: home.php");// Redirect to home page
                     exit();
                 } else {
-                    $error = "Wrong password.";
+                    $error = "Wrong password.";// Password mismatch
                 }
             } else {
-                $error = "User not found.";
+                $error = "User not found.";// No user found with this email
             }
         }
     }
