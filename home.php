@@ -63,7 +63,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 <main>
     <section class="events-grid">
         <?php foreach($events as $event) { ?>
-            <div class="event-card" style="background-image: url('<?php echo htmlspecialchars($event['image']); ?>');">
+            <div class="event-card" style="background-image: url('image/<?php echo htmlspecialchars($event['image']); ?>');">
 
                 <div class="event-info">
                     <h3><?php echo htmlspecialchars($event['name']); ?></h3>
