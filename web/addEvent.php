@@ -2,22 +2,26 @@
 // addEvent.php
 session_start();
 
-// حماية صفحة الأدمن
+// Start session and verify admin authentication
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    // Redirect unauthorized users to the admin login page
     header("Location: admin.php");
     exit();
 }
 
-// ربط قاعدة البيانات
+// Load database configuration file
 include("config.php");
 
+// Variables to store error or success messages
 $error = "";
 $success = "";
 
+// Process the form when the 'Add Event' button is clicked
 if (isset($_POST['add'])) {
 
+    // Retrieve and sanitize form inputs
     $name        = trim($_POST['name']);
-    $dt = $_POST['date_time']; // قيمة من الفورم: "YYYY-MM-DDTHH:MM"
+    $dt = $_POST['date_time']; // Input format: "YYYY-MM-DDTHH:MM"
     $event_date = date('Y-m-d', strtotime($dt)); // YYYY-MM-DD
     $event_time = date('H:i:s', strtotime($dt)); // HH:MM:SS
 
@@ -25,20 +29,20 @@ if (isset($_POST['add'])) {
     $price       = $_POST['price'];
     $max_tickets = $_POST['available'];
     $description = $_POST['description'];
-    $image       = trim($_POST['image']); // 
+    $image       = trim($_POST['image']); // Expecting only the image file name
 
-    // تحقق بسيط
+     // Basic validation to ensure required fields are not empty
     if ($name === "" || $event_date === "" || $event_time === "" || $location === "" || $price === "" || $max_tickets === "" || $image === "" || $description === "") {
         $error = "All fields are required.";
     } else {
-        // تحويل date_time لصيغة MySQL لو احتجنا
-        // هنا نثق إن الـ input type="datetime-local" راح يرجع صيغة مناسبة
+
+        // Prepare SQL statement to insert a new event into the database
         $stmt = $conn->prepare("INSERT INTO events (name, event_date, event_time, location, price, available, image , description)
                                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssdiss", $name, $event_date, $event_time, $location, $price, $max_tickets, $image, $description);
         
         if ($stmt->execute()) {
-            // بعد الإضافة، رجّعيه لصفحة إدارة الفعاليات
+            // After adding the event, redirect to the event management page
             header("Location: manageEvents.php");
             exit();
         } else {
@@ -52,7 +56,7 @@ if (isset($_POST['add'])) {
 <head>
     <meta charset="UTF-8">
     <title>Add Event</title>
-    <!-- لو فولدر css داخل web، خليه css/style.css -->
+    <!-- If the CSS folder is inside the 'web' directory, set the path to css/style.css -->
     <link rel="stylesheet" href="style2.css">
     </head>
 <body>
