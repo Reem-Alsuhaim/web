@@ -56,50 +56,48 @@ if (isset($_POST['add'])) {
 <head>
     <meta charset="UTF-8">
     <title>Add Event</title>
-    <!-- If the CSS folder is inside the 'web' directory, set the path to css/style.css -->
     <link rel="stylesheet" href="Admin-style.css">
-    </head>
+</head>
+
 <body>
 
-<?php include "admin_sidebar.php"; ?>
+    <?php include "admin_sidebar.php"; ?>
 
-<main class="main-content">
-    <h2>Add New Event</h2>
+    <main class="main-content">
+        <h2>Add New Event</h2>
 
-    <?php if ($error): ?>
-        <p style="color:red;"><?= htmlspecialchars($error); ?></p>
-    <?php endif; ?>
+        <?php if ($error): ?>
+            <p style="color:red;"><?= htmlspecialchars($error); ?></p>
+        <?php endif; ?>
 
-    <form method="POST">
-        <label>Event Name</label>
-        <input type="text" name="name" required>
+        <form method="POST">
+            <label>Event Name</label>
+            <input type="text" name="name" required>
 
-        <label>Date &amp; Time</label>
-        <input type="datetime-local" name="date_time" required>
+            <label>Date &amp; Time</label>
+            <input type="datetime-local" name="date_time" required>
 
-        <label>Location</label>
-        <input type="text" name="location" required>
+            <label>Location</label>
+            <input type="text" name="location" required>
 
-        <label>Price</label>
-        <input type="number" step="0.01" name="price" required>
+            <label>Price</label>
+            <input type="number" step="0.01" name="price" required>
 
-        <label>Maximum Tickets</label>
-        <input type="number" name="available" required>
+            <label>Maximum Tickets</label>
+            <input type="number" name="available" required>
 
-        <label>Description</label>
-        <input type="text" name="description" required>
+            <label>Description</label>
+            <input type="text" name="description" required>
 
-        <label>Image (file name only)</label>
-        <input type="text" name="image" placeholder="example.jpg" required>
+            <label>Image (file name only)</label>
+            <input type="text" name="image" placeholder="example.jpg" required>
 
-        <button type="submit" name="add" class="btn btn-primary">Add Event</button>
-        <a href="manageEvents.php" class="admin-back-btn">Back</a>
+            <button type="submit" name="add" class="btn btn-primary">Add Event</button>
+            <a href="manageEvents.php" class="admin-back-btn">Back</a>
 
-    </form>
+        </form>
 
-</main>
-
-</div>
+    </main>
 </body>
 </html>
 

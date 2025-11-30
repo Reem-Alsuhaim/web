@@ -15,7 +15,7 @@ if(isset($_POST['login'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Process login form submission
+    // Validate admin credentials
     if($username === "admin" && $password === "admin123"){
         // Store admin login session and redirect
         $_SESSION['admin_logged_in'] = true;
@@ -27,21 +27,24 @@ if(isset($_POST['login'])){
     }
 }
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Admin Login</title>
     <link rel="stylesheet" href="Admin-style.css">
 </head>
+
 <body class="admin-login-body">
 
-<div class="admin-login-card">
+    <div class="admin-login-card">
 
-<div class="admin-login-logo">
-    <img src="/web/image/sixflags.png" alt="Six Flags Logo"> 
-</div>
+        <div class="admin-login-logo">
+            <img src="/web/image/sixflags.png" alt="Six Flags Logo"> 
+        </div>
 
-<h2>Admin Login</h2>
+        <h2>Admin Login</h2>
 
         <!-- Display login error message -->
         <?php if($error): ?>
@@ -49,6 +52,7 @@ if(isset($_POST['login'])){
                 <?php echo $error; ?>
             </p>
         <?php endif; ?>
+
         <!-- Admin Login Form -->
         <form method="POST">
             <input type="text" name="username" placeholder="Username">

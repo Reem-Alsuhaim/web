@@ -52,52 +52,52 @@ if(isset($_POST['update'])){
     <link rel="stylesheet" href="Admin-style.css">
     </head>
 <body>
-<?php include "admin_sidebar.php"; ?>
+    <?php include "admin_sidebar.php"; ?>
 
-<main class="main-content">
-<h2>Edit Event</h2>
+    <main class="main-content">
+        <h2>Edit Event</h2>
 
-<!-- Display validation error message -->
-<?php if($error): ?>
-    <p style="color:red;"><?= $error; ?></p>
-<?php endif; ?>
+        <!-- Display validation error message -->
+        <?php if($error): ?>
+            <p style="color:red;"><?= $error; ?></p>
+        <?php endif; ?>
 
-<!-- Event edit form -->
-<form method="POST">
+        <!-- Event edit form -->
+        <form method="POST">
 
-    <label>Name</label>
-    <input type="text" name="name" value="<?= $event['name']; ?>" required>
+            <label>Name</label>
+            <input type="text" name="name" value="<?= $event['name']; ?>" required>
 
-    <label>Date</label>
-    <input type="date" name="event_date"
-        value="<?= date('Y-m-d', strtotime($event['event_date'])); ?>" required>
+            <label>Date</label>
+            <input type="date" name="event_date"
+                value="<?= date('Y-m-d', strtotime($event['event_date'])); ?>" required>
 
-    <label>Time</label>
-    <input type="time" name="event_time"
-        value="<?= date('H:i', strtotime($event['event_time'])); ?>" required>
+            <label>Time</label>
+            <input type="time" name="event_time"
+                value="<?= date('H:i', strtotime($event['event_time'])); ?>" required>
 
-    <label>Location</label>
-    <input type="text" name="location" value="<?= $event['location']; ?>" required>
+            <label>Location</label>
+            <input type="text" name="location" value="<?= $event['location']; ?>" required>
 
-    <label>Price</label>
-    <input type="number" name="price" value="<?= $event['price']; ?>" required>
+            <label>Price</label>
+            <input type="number" name="price" value="<?= $event['price']; ?>" required>
 
-    <label>Max Tickets</label>
-    <input type="number" name="available" value="<?= $event['available']; ?>" required>
+            <label>Max Tickets</label>
+            <input type="number" name="available" value="<?= $event['available']; ?>" required>
 
-    <label>Description</label>
-    <input type="text" name="description" value="<?= $event['description']; ?>" required>
+            <label>Description</label>
+            <input type="text" name="description" value="<?= $event['description']; ?>" required>
 
-    <label>Image</label>
-    <input type="text" name="image" value="<?= $event['image']; ?>" required>
+            <label>Image</label>
+            <input type="text" name="image" value="<?= $event['image']; ?>" required>
 
-    <button type="submit" name="update" class="btn btn-primary">Update Event</button>
-      
-    <!-- Back button -->
-    <a href="manageEvents.php" class="admin-back-btn">Back</a>
-    </form>
+            <button type="submit" name="update" class="btn btn-primary">Update Event</button>
+            
+            <!-- Back button -->
+            <a href="manageEvents.php" class="admin-back-btn">Back</a>
+        </form>
 
-</main>
+    </main>
 </body>
 </html>
 

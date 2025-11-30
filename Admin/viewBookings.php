@@ -25,54 +25,55 @@ ORDER BY b.booking_date DESC;
 ";
 $result = $conn->query($sql);
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>View Bookings</title>
-<link rel="stylesheet" href="Admin-style.css">
+    <title>View Bookings</title>
+    <link rel="stylesheet" href="Admin-style.css">
 </head>
+
 <body>
 
-<?php include "admin_sidebar.php"; ?>
+    <?php include "admin_sidebar.php"; ?>
 
-<main class="main-content">
-<h2>All Bookings</h2>
+    <main class="main-content">
+        <h2>All Bookings</h2>
 
-<table class="table">
-<thead>
-<tr>
-<th>User</th>
-<th>Email</th>
-<th>Booking Date</th>
-<th>Event</th>
-<th>Event Date</th>
-<th>Tickets</th>
-<th>Total Price</th>
-</tr>
-</thead>
-<tbody>
+        <table class="table">
+            <thead>
+            <tr>
+            <th>User</th>
+            <th>Email</th>
+            <th>Booking Date</th>
+            <th>Event</th>
+            <th>Event Date</th>
+            <th>Tickets</th>
+            <th>Total Price</th>
+            </tr>
+            </thead>
+            <tbody>
+                <?php if($result && $result->num_rows > 0): ?>
 
-<?php if($result && $result->num_rows > 0): ?>
-<!-- Display each booking record -->
-<?php while($row=$result->fetch_assoc()): ?>
-<tr>
-<td><?= $row['uname']; ?></td>
-<td><?= $row['email']; ?></td>
-<td><?= $row['booking_date']; ?></td>
-<td><?= $row['ename']; ?></td>
-<td><?= $row['event_date']; ?></td>
-<td><?= $row['quantity']; ?></td>
-<td> <img src="/web/image/riyal.svg" class="sar-icon" style="width: 12px; margin-right: 4px;"><?= $row['total_price']; ?></td>
-</tr>
-<?php endwhile; ?>
-<?php else: ?>
-    <!-- Message when no bookings exist -->
-    <tr><td colspan="7" style="text-align:center;">No bookings yet.</td></tr>
-    <?php endif; ?>
+                    <!-- Display each booking record -->
+                    <?php while($row=$result->fetch_assoc()): ?>
+                        <tr>
+                        <td><?= $row['uname']; ?></td>
+                        <td><?= $row['email']; ?></td>
+                        <td><?= $row['booking_date']; ?></td>
+                        <td><?= $row['ename']; ?></td>
+                        <td><?= $row['event_date']; ?></td>
+                        <td><?= $row['quantity']; ?></td>
+                        <td> <img src="/web/image/riyal.svg" class="sar-icon" style="width: 12px; margin-right: 4px;"><?= $row['total_price']; ?></td>
+                        </tr>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <!-- Message when no bookings exist -->
+                    <tr><td colspan="7" style="text-align:center;">No bookings yet.</td></tr>
+                <?php endif; ?>
 
-</tbody>
-</table>
-
-</main>
+            </tbody>
+        </table>
+    </main>
 </body>
 </html>
