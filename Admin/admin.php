@@ -51,11 +51,8 @@ if(isset($_POST['login'])){
         <?php endif; ?>
         <!-- Admin Login Form -->
         <form method="POST">
-            <label>Username:</label>
-            <input type="text" name="username" required>
-
-            <label>Password:</label>
-            <input type="password" name="password" required>
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
 
             <button type="submit" name="login" class="btn btn-primary" style="width:100%;">Login</button>
         </form>
