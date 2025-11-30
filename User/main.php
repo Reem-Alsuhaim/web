@@ -87,7 +87,7 @@ body {
 /* HERO */
 .hero {
     height: 100vh;
-    background: url('image/hero-bg.png') center/cover no-repeat;
+    background: url('/web/image/hero-bg.png') center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -281,7 +281,7 @@ body {
 <header class="header">
     <nav class="nav-container">
 
-        <img src="sixflags.png" class="logo-img">
+        <img src="/web/image/sixflags.png" class="logo-img">
 
         <ul class="nav-menu">
             <li><a href="#home">Home</a></li>
@@ -291,8 +291,8 @@ body {
         </ul>
   <!-- Right-side Logos -->
         <div class="right-logos">
-            <img src="image/qiddiya.png">
-            <img src="image/vision2030.png">
+            <img src="/web/image/qiddiya.png">
+            <img src="/web/image/vision2030.png">
         </div>
 
     </nav>
@@ -321,7 +321,7 @@ body {
 <!-- BOOK NOW -->
 <section class="book-banner" id="book">
     <div class="book-left">
-        <img src="image/boy.png">
+        <img src="/web/image/boy.png">
     </div>
 
     <div class="book-right">
@@ -490,10 +490,10 @@ body {
 <script>
 /* Array of rides shown in the 3D carousel */
 const rides = [
-    { title: "Steam Racer", img: "image/Iron_Rattler.png", desc: "The iconic steampunk coaster of Qiddiya." },
-    { title: "Orbital Spin", img: "image/Gyrospin.png", desc: "A thrilling spinning experience with neon lights." },
-    { title: "Falcon Loop", img: "image/Spitfire.jpg", desc: "A high-speed coaster with insane drops." },
-    { title: "Carousel Kids", img: "image/Arabian_Carousel.jpg", desc: "A gentle and fun ride for families." }
+    { title: "Steam Racer", img: "/web/image/Iron_Rattler.png", desc: "The iconic steampunk coaster of Qiddiya." },
+    { title: "Orbital Spin", img: "/web/image/Gyrospin.png", desc: "A thrilling spinning experience with neon lights." },
+    { title: "Falcon Loop", img: "/web/image/Spitfire.jpg", desc: "A high-speed coaster with insane drops." },
+    { title: "Carousel Kids", img: "/web/image/Arabian_Carousel.jpg", desc: "A gentle and fun ride for families." }
 ];
 
 const carousel = document.getElementById("carousel");

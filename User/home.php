@@ -39,7 +39,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 ====================================== -->
 <header>
     <div class="header-logo">
-        <img src="image/sixflags.png" class="logo" alt="Logo">
+        <img src="/web/image/sixflags.png" class="logo" alt="Logo">
         <span>Six Flags</span>
     </div>
 <!-- Show user name if logged in -->
@@ -73,7 +73,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <section class="events-grid">
         <!-- Loop through all events and display them -->
         <?php foreach($events as $event) { ?>
-            <div class="event-card" style="background-image: url('image/<?php echo htmlspecialchars($event['image']); ?>');"> <!-- Event card with background image -->
+            <div class="event-card" style="background-image: url('/web/image/<?php echo htmlspecialchars($event['image']); ?>');"> <!-- Event card with background image -->
 
                 <div class="event-info">
                     <h3><?php echo htmlspecialchars($event['name']); ?></h3>

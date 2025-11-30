@@ -100,12 +100,12 @@ $currentDateTime = date("Y-m-d H:i:s");
 ====================================== -->
 <header>
     <div class="header-logo">
-        <img src="sixflags.png" class="logo" alt="Logo"> <!-- Site Logo -->
+        <img src="/web/image/sixflags.png" class="logo" alt="Logo"> <!-- Site Logo -->
         <span>Six Flags</span>
     </div>
   <!-- Greeting the logged-in user -->
     <div class="welcome-text">
-        <span>Welcome <?php echo htmlspecialchars($userName); ?>.</span>
+        <span>Welcome <?php echo htmlspecialchars($userName); ?> .</span>
     </div>
  <!-- Navigation Buttons -->
     <div class="user-actions">
@@ -149,14 +149,20 @@ $currentDateTime = date("Y-m-d H:i:s");
                             <td><?php echo htmlspecialchars($item['name']); ?></td>
                             <td><?php echo htmlspecialchars($item['date']); ?></td>
                             <td><?php echo $item['qty']; ?></td>
-                            <td><?php echo number_format($item['price'],2); ?> $</td>
-                            <td><?php echo number_format($item['total'],2); ?> $</td>
+                            <td>
+                            <img src="/web/image/riyal.svg" class="sar-icon" style="width: 12px; margin-right: 4px;">
+                            <?php echo number_format($item['price'], 2); ?>
+                            </td>                                    
+                            <td>
+                             <img src="/web/image/riyal.svg" class="sar-icon" style="width: 12px; margin-right: 4px;">
+                            <?php echo number_format($item['total'],2); ?> 
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
             </table>
 <!-- Show total price of the cart -->
-            <p><strong>Total Price:</strong> <?php echo number_format($totalPrice, 2); ?> $</p>
+            <p><strong>Total Price:</strong>  <img src="/web/image/riyal.svg" class="sar-icon" style="width: 12px; margin-right: 4px;"> <?php echo number_format($totalPrice, 2); ?> </p>
 <!-- Reserve Tickets Button -->
             <form method="POST">
                 <button type="submit" name="reserve">Reserve Tickets</button>
@@ -197,7 +203,7 @@ $currentDateTime = date("Y-m-d H:i:s");
                     <td><?= $b['id']; ?></td>
                     <td><?= htmlspecialchars($b['event_name']); ?></td>
                     <td><?= $b['quantity']; ?></td>
-                    <td><?= number_format($b['total_price'],2); ?> $</td>
+                    <td> <img src="/web/image/riyal.svg" class="sar-icon" style="width: 12px; margin-right: 4px;"> <?= number_format($b['total_price'],2); ?></td>
                     <td><?= $b['booking_date']; ?></td>
                 </tr>
             <?php endforeach; ?>

@@ -59,7 +59,7 @@ h1 {color: var(--navy)}
 footer {
   justify-content: center;
   padding: 15px 30px;
-  background: rgba(var(--white-rgb,255,255,255),0.85);
+  background-color:var (--navy);
   box-shadow: 0 -2px 5px var(--shadow-footer);
   border-top: 2px solid var(--yellow-main);
 }

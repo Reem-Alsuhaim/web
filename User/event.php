@@ -86,7 +86,7 @@ if (isset($_POST['add_to_cart'])) {
 ========================================== -->
 <header>
    <div class="header-logo">
-        <img src="image/sixflags.png" class="logo" alt="Logo">
+        <img src="/web/image/sixflags.png" class="logo" alt="Logo">
         <span>Six Flags</span>
     </div>
 
@@ -128,7 +128,7 @@ if (isset($_POST['add_to_cart'])) {
 
            <!-- Event Image -->
             <div class="event-image">
-                <img src="image/<?php echo htmlspecialchars($event['image']); ?>" alt="<?php echo htmlspecialchars($event['image']); ?>">
+                <img src="/web/image/<?php echo htmlspecialchars($event['image']); ?>" alt="<?php echo htmlspecialchars($event['image']); ?>">
             </div>
 
              <!-- Event Details Section -->
@@ -140,7 +140,7 @@ if (isset($_POST['add_to_cart'])) {
                 <p><strong>Time:</strong> <?= htmlspecialchars($event['event_time']); ?></p>
                 <p><strong>Location:</strong> <?= htmlspecialchars($event['location']); ?></p>
                 <p style="white-space: pre-wrap;"><strong>Description:</strong> <?= htmlspecialchars($event['description']); ?></p>  <!-- Description (supports multi-line text) -->
-                <p><strong>Price:</strong> <?= $event['price']; ?></p>
+                <p><strong>Price:</strong>  <img src="/web/image/riyal.svg" class="sar-icon" style="width: 12px; margin-right: 4px;"><?= $event['price']; ?></p>
                 <p><strong>Available:</strong> <?= $availableTickets; ?></p>
                 <!-- Add to Cart Form -->
                 <form method="POST">

@@ -60,12 +60,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url('/web/image/hero-bg.png') center center / cover no-repeat fixed;
-  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url("/images/background.png") center center / cover no-repeat fixed;
+    url("/web/image/hero-bg.png") center center / cover no-repeat fixed;
   font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
     sans-serif;
 }
