@@ -261,6 +261,10 @@ main {
   align-items: center;
 }
 
+/* ====== RESPONSIVE ====== */
+@media (min-width: 769px) and (max-width:1024px){ .events-grid{ grid-template-columns: repeat(2,1fr); } }
+@media (max-width:768px){ .events-grid{ grid-template-columns:1fr; } }
+
 .event-container {
   display: flex;
   width: 85%;
@@ -449,7 +453,7 @@ button[name="reserve"] {
 .auth-box input[type="password"],
 .auth-box input[type="text"] {
   width: 100%;
-  padding: 10px 14px;
+  padding: 10px 4px;
   margin-bottom: 12px;
   border-radius: 12px;
   border: 1px solid #ccd4f0;
