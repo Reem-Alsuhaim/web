@@ -57,7 +57,7 @@ if (isset($_POST['add'])) {
     <meta charset="UTF-8">
     <title>Add Event</title>
     <!-- If the CSS folder is inside the 'web' directory, set the path to css/style.css -->
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="Admin-style.css">
     </head>
 <body>
 

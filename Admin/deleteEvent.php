@@ -44,7 +44,7 @@ if(isset($_POST['confirm'])){
 <html>
 <head>
     <title>Delete Event</title>
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="Admin-style.css">
     </head>
 <body>
 
@@ -54,17 +54,22 @@ if(isset($_POST['confirm'])){
 <h2>Delete Event</h2>
 
 <?php if($msg): ?><p style="color:red;"><?= $msg; ?></p><?php endif; ?>
-
+ <div class="view-event-box">
 <?php if($event): ?>
         <!-- Display event details for confirmation -->
         <p><b>Name:</b> <?= $event['name']; ?></p>
         <p><b>Date:</b> <?= $event['event_date']; ?></p>
         <p><b>Time:</b> <?= $event['event_time']; ?></p>
         <p><b>Location:</b> <?= $event['location']; ?></p>
-        <p><b>Price:</b> <?= $event['price']; ?></p>
+        <p><b>Price:</b> <img src="/web/image/riyal.svg" class="sar-icon" style="width: 12px; margin-right: 4px;"><?= $event['price']; ?></p>
         <p><b>Max Tickets:</b> <?= $event['available']; ?></p>
-        <p><b>Description:</b> <?= $event['description']; ?></p>
-        <p><b>Image:</b> <?= $event['image']; ?></p>
+        <?= $event['description']; ?></p>
+
+        <p style="white-space: pre-wrap;"><?= $event['description']; ?></p>
+
+        <img class="event-image"
+            src="/web/image/<?= htmlspecialchars($event['image']); ?>"
+            alt="<?= htmlspecialchars($event['image']); ?>">
 
 <?php if($hasBookings): ?>
     <!-- Display a warning if the event cannot be deleted due to existing bookings -->
@@ -83,7 +88,7 @@ if(isset($_POST['confirm'])){
 </br>
 <!-- Back button to return to the event management page -->
 <a href="manageEvents.php" class="admin-back-btn">Back</a>
-
+ </div>
 </main>
 </body>
 </html>

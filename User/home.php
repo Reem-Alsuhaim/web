@@ -26,7 +26,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         <!-- Responsive Design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Main CSS File -->
-    <link rel="stylesheet" href="style4.css">
+    <link rel="stylesheet" href="User-style.css">
      <!-- Icons -->
     <link rel="stylesheet" 
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -39,7 +39,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 ====================================== -->
 <header>
     <div class="header-logo">
-        <img src="/web/image/sixflags.png" class="logo" alt="Logo">
+        <img src="/web/image/Six-Flags-login.png" class="logo" alt="Logo">
         <span>Six Flags</span>
     </div>
 <!-- Show user name if logged in -->

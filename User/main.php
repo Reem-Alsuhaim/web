@@ -102,6 +102,7 @@ body {
     inset: 0;
     background: rgba(0,0,0,0.45);
 }
+
 /* Hero text content */
 .hero h1, .hero p {
     position: relative;
@@ -161,6 +162,8 @@ body {
     cursor: pointer;
     transform: translate(-50%, -50%);
 }
+
+
 /* Attraction Card Style */
 .card {
     width: 100%;
@@ -219,6 +222,7 @@ body {
 
 #arrowLeft { left: 30px; }
 #arrowRight { right: 30px; }
+
 
 /*  BOOK NOW */
 .book-banner {
@@ -538,6 +542,7 @@ function updateCarousel() {
     });
 }
 
+
 buildCarousel();
 /* Auto slide every 4 seconds */
 setInterval(() => {
@@ -561,12 +566,12 @@ document.getElementById("arrowRight").onclick = () => {
     color: white;
     padding: 20px 0;
     text-align: center;
-    margin-top: 60px;
+    
     border-top: 3px solid var(--yellow-main);
 ">
-    <p style="font-size:16px; font-weight:600; letter-spacing:0.5px;">
-        © 2025 Six Flags Qiddiya. All Rights Reserved.
-    </p>
+    <footer>
+    <p>©  Six Flags Qiddiya. All Rights Reserved. — <?php echo date("Y"); ?></p>
+</footer>
 </footer>
 
 </body>

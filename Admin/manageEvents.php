@@ -15,7 +15,7 @@ $result = $conn->query($sql);
 <html>
 <head>
     <title>Manage Events</title>
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="Admin-style.css">
     </head>
 <body>
 

@@ -49,7 +49,7 @@ if(isset($_POST['update'])){
 <html>
 <head>
     <title>Edit Event</title>
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="Admin-style.css">
     </head>
 <body>
 <?php include "admin_sidebar.php"; ?>

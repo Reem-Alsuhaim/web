@@ -65,19 +65,21 @@ h1 {
   color: var(--navy);
 }
 
+
 footer {
   justify-content: center;
-  padding: 15px 30px;
+  padding: 0;
   background-color: var(--navy);
   box-shadow: 0 -2px 5px var(--shadow-footer);
-  border-top: 2px solid var(--yellow-main);
+  border-top: 3px solid var(--yellow-main);
+  color: #e3f4ff;
 }
 
 /* =================== HEADER =================== */
 .header-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+ 
 }
 .header-logo .logo {
   height: 45px;
@@ -128,19 +130,24 @@ button:hover {
 }
 
 /* =================== MESSAGES =================== */
-.error {
-  margin-top: 12px;
-  background: var(--error-bg);
-  padding: 10px;
-  border-left: 5px solid var(--error-border);
-  border-radius: 5px;
+
+.success.error  {
+  padding: 9px 11px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  margin-bottom: 10px;
 }
+
 .success {
-  margin-top: 12px;
-  background: var(--success-bg);
-  padding: 10px;
-  border-left: 5px solid var(--success-border);
-  border-radius: 5px;
+  background: rgba(34, 197, 94, 0.07);
+  border: 1px solid rgba(34, 197, 94, 0.45);
+  color: #14532d;
+}
+
+.error {
+  background: rgba(216, 0, 0, 0.08);
+  border: 1px solid rgba(216, 0, 0, 0.55);
+  color: #7f1d1d;
 }
 
 /* =================== BACK BUTTON =================== */
@@ -273,6 +280,59 @@ main {
   font-size: 16px;
 }
 
+/* =================== FORM =================== */
+form { margin-top:20px; }
+form label { font-weight:600; display:block; margin-bottom:6px; }
+form input[type="number"] {
+  width:97%;
+  padding:8px;
+  border-radius:6px;
+  border:1px solid var(--table-border);
+  font-size:16px;
+  margin-bottom:10px;
+}
+
+
+/* =================== CART PAGE =================== */
+.cart-section {
+  max-width:900px;
+  margin:100px auto 50px;
+  background-color: rgba(var(--white-rgb,255,255,255),0.532);
+  padding:25px;
+  border-radius:14px;
+  box-shadow:0 4px 15px var(--shadow-card);
+}
+.cart-section h1, .cart-section h2 {
+  text-align:center;
+  margin-bottom:20px;
+  font-size:28px;
+}
+.cart-section p { text-align:center; font-size:16px; margin-bottom:15px; }
+.cart-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:0.9rem;
+}
+.cart-table th, .cart-table td {
+  padding:10px 12px;
+  text-align:left;
+  border-bottom:1px solid #e2e5f2;
+}
+.cart-table th {
+  background: var(--navy);
+  color: var(--white);
+  font-weight:500;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  font-size:0.78rem;
+}
+.cart-table tbody tr:nth-child(odd) { background:#fff; }
+.cart-table tbody tr:nth-child(even) { background:#f4f7ff; }
+.cart-table tbody tr:hover { background: var(--yellow-light); }
+.btn-empty {background-color:#d80000 ; color:#ffffff; box-shadow:0 12px 26px rgba(216, 0, 0, 0.091);}
+.btn-empty:hover { transform: translateY(-1px); box-shadow:0 12px 26px rgba(216,0,0,0.55); }
+button[name="reserve"] { margin-top:15px; }
+
 /* =================== AUTH PAGES (USER LOGIN SAME AS ADMIN) =================== */
 .login-page {
   min-height: 100vh;
@@ -284,25 +344,24 @@ main {
     url("/web/image/hero-bg.png") center center / cover no-repeat fixed;
 }
 
-/* نفس بوكس الأدمن */
+
 .auth-box {
-  width: 90%;
-  max-width: 460px;
-  padding: 28px 28px 30px;
-  border-radius: 30px;
 
-  background: linear-gradient(
-    145deg,
-    rgba(252, 235, 235, 0.828),
-    rgba(255, 248, 204, 0.92)
-  );
-
-  backdrop-filter: blur(12px);
-  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  width:450px;
+  max-width:90%;
+  padding:40px 30px;
+  background-color: rgba(255,255,255,0.5);
+  border-radius:14px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.1);
+  text-align:center;
+  backdrop-filter:blur(10px);
+  opacity:0;
+  transform:translateY(-30px);
+  animation:fadeInUp 0.8s forwards;
 }
+@keyframes fadeInUp { to{ opacity:1; transform:translateY(0); } }
+.auth-box h1, .auth-box h2, .auth-box h3 { margin-bottom:20px; color: var(--text-navy); }
 
-/* نفس حجم اللوقو بالضبط */
 .auth-box img {
   width: 200px;
   height: auto;
@@ -316,7 +375,7 @@ main {
   background: transparent;
 }
 
-/* العناوين نفس الأدمن */
+
 .auth-box h2 {
   margin: 8px 0 18px;
   font-size: 1.7rem;
@@ -324,7 +383,7 @@ main {
   color: var(--text-dark);
 }
 
-/* نفس فورم الأدمن */
+
 .auth-box form {
   display: flex;
   flex-direction: column;
@@ -336,11 +395,11 @@ main {
 .auth-box input[type="text"] {
   display: block;
   width: 100%;
-  box-sizing: border-box; /* ← أهم شيء، يمنع الانزلاق */
+  box-sizing: border-box;
 
   padding: 10px 14px;
 
-  margin: 0; /* ← يمنع أي سحب */
+  margin: 0; 
   margin-bottom: 12px;
 
   border-radius: 12px;
@@ -354,27 +413,9 @@ main {
   transition: 0.15s ease-out;
 }
 
-/* زر مطابق للأدمن */
-.auth-box button {
-  margin-top: 6px;
-  padding: 11px 16px;
-  border-radius: 999px;
-
-  background: linear-gradient(
-    135deg,
-    #cee9f9d8 0%,
-    #f5e174cd 35%,
-    #e4daf6c3 100%
-  );
-
-  color: var(--navy);
-  border: 2px solid #ffffff;
-  box-shadow: 0 10px 24px rgba(22, 34, 88, 0.25);
-
-  font-size: 0.98rem;
-  font-weight: 600;
-  transition: transform 0.18s ease-out, box-shadow 0.18s ease-out,
-    filter 0.18s ease-out;
+.auth-box input[type="text"]:focus, .auth-box input[type="email"]:focus, .auth-box input[type="password"]:focus {
+  border-color: var(--navy);
+  box-shadow:0 0 5px rgba(22,34,88,0.3);
 }
 
 .auth-box button:hover {

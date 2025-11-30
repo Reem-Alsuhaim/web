@@ -29,7 +29,7 @@ $result = $conn->query($sql);
 <html>
 <head>
 <title>View Bookings</title>
-<link rel="stylesheet" href="style2.css">
+<link rel="stylesheet" href="Admin-style.css">
 </head>
 <body>
 
@@ -62,7 +62,7 @@ $result = $conn->query($sql);
 <td><?= $row['ename']; ?></td>
 <td><?= $row['event_date']; ?></td>
 <td><?= $row['quantity']; ?></td>
-<td><?= $row['total_price']; ?></td>
+<td> <img src="/web/image/riyal.svg" class="sar-icon" style="width: 12px; margin-right: 4px;"><?= $row['total_price']; ?></td>
 </tr>
 <?php endwhile; ?>
 <?php else: ?>

@@ -74,7 +74,7 @@ if (isset($_POST['add_to_cart'])) {
 <head>
     <meta charset="UTF-8">
     <title><?php echo htmlspecialchars($event['name']); ?> - Event Booking</title> <!-- Set dynamic page title based on event name -->
-    <link rel="stylesheet" href="style4.css"> <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="User-style.css"> <!-- Main Stylesheet -->
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -86,7 +86,7 @@ if (isset($_POST['add_to_cart'])) {
 ========================================== -->
 <header>
    <div class="header-logo">
-        <img src="/web/image/sixflags.png" class="logo" alt="Logo">
+        <img src="/web/image/Six-Flags-login.png" class="logo" alt="Logo">
         <span>Six Flags</span>
     </div>
 

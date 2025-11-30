@@ -39,6 +39,11 @@ if (isset($_POST['reserve']) && $cart) {
     $cart = [];
     $success_msg = "Booking confirmed! Tickets reserved.";
 }
+// Empty cart manually
+if (isset($_POST['empty_cart'])) {
+    $_SESSION['cart'] = [];
+    $cart = [];
+}
 
 //Fetch all bookings for the logged-in user
 $bookings = [];
@@ -88,7 +93,7 @@ $currentDateTime = date("Y-m-d H:i:s");
 <head>
     <meta charset="UTF-8">
     <title>Cart - Event Booking</title>
-    <link rel="stylesheet" href="style4.css">  <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="User-style.css">  <!-- Main Stylesheet -->
     <link rel="stylesheet" 
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">   <!-- Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">  <!-- Fonts -->
@@ -100,7 +105,7 @@ $currentDateTime = date("Y-m-d H:i:s");
 ====================================== -->
 <header>
     <div class="header-logo">
-        <img src="/web/image/sixflags.png" class="logo" alt="Logo"> <!-- Site Logo -->
+        <img src="/web/image/Six-Flags-login.png" class="logo" alt="Logo"> <!-- Site Logo -->
         <span>Six Flags</span>
     </div>
   <!-- Greeting the logged-in user -->
