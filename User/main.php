@@ -16,7 +16,7 @@
   --navy: #162258;
   --text-dark: #222;
 
-  /* NEW */
+ 
   --purple-main: #7A3EF0; 
 }
 
@@ -202,6 +202,7 @@ body {
     font-size: 14px;
     color: #333;
 }
+
 
 .carousel-arrow {
     position: absolute;
@@ -489,9 +490,7 @@ body {
     </div>
 </section>
 
-<!-- ============================
-     JAVASCRIPT (ADDED)
-============================= -->
+<!-- JAVASCRIPT (ADDED) -->
 <script>
 /* Array of rides shown in the 3D carousel */
 const rides = [

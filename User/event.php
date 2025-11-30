@@ -81,9 +81,7 @@ if (isset($_POST['add_to_cart'])) {
 
 </head>
 <body>
-<!-- ==========================================
-     HEADER (Navigation + Logo + User)
-========================================== -->
+<!--HEADER (Navigation + Logo + User)-->
 <header>
    <div class="header-logo">
         <img src="/web/image/Six-Flags-login.png" class="logo" alt="Logo">
@@ -113,9 +111,7 @@ if (isset($_POST['add_to_cart'])) {
         <?php endif; ?>
     </div>
 </header>
-<!-- ==========================================
-     MAIN EVENT PAGE CONTENT
-========================================== -->
+<!-- MAIN EVENT PAGE CONTENT -->
 <main>
     <section class="event-details-section">
 
@@ -160,9 +156,7 @@ if (isset($_POST['add_to_cart'])) {
         </div>
     </section>
 </main>
-<!-- ==========================================
-     FOOTER
-========================================== -->
+<!--FOOTER-->
 <footer>
     <p>©  Six Flags Qiddiya. All Rights Reserved. — <?php echo date("Y"); ?></p>
 </footer>

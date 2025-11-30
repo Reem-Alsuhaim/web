@@ -93,16 +93,15 @@ $currentDateTime = date("Y-m-d H:i:s");
 <head>
     <meta charset="UTF-8">
     <title>Cart - Event Booking</title>
-    <link rel="stylesheet" href="User-style.css">  <!-- Main Stylesheet -->
-    <link rel="stylesheet" 
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">   <!-- Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">  <!-- Fonts -->
+   <link rel="stylesheet" href="User-style.css"> <!--Main Stylesheet-->
+<link rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!--Icons-->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" 
+      rel="stylesheet">  <!--Fonts-->
 
 </head>
 <body>
-<!-- ======================================
-     HEADER SECTION (Top Navigation Bar)
-====================================== -->
+<!--HEADER SECTION (Top Navigation Bar) -->
 <header>
     <div class="header-logo">
         <img src="/web/image/Six-Flags-login.png" class="logo" alt="Logo"> <!-- Site Logo -->
@@ -185,9 +184,7 @@ $currentDateTime = date("Y-m-d H:i:s");
             <p>Your cart is empty.</p> <!-- Message if cart is empty -->
         <?php } ?>
     </section>
-   <!-- ============================
-         USER BOOKINGS SECTION
-    ============================= -->
+   <!--  USER BOOKINGS SECTION -->
     <section>
     <?php if ($bookings): ?>
     <h2>Your Bookings</h2>
