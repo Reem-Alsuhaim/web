@@ -3,7 +3,7 @@
 
 $host = "localhost";
 $user = "root";
-$pass = "root";       
+$pass = "";       
 $db   = "event_booking";
 
 $conn = new mysqli($host, $user, $pass, $db);
