@@ -261,7 +261,7 @@ main {
   align-items: center;
 }
 
-/* ====== RESPONSIVE ====== */
+/*  responsive  */
 @media (min-width: 769px) and (max-width:1024px){ 
     
   .events-grid{ grid-template-columns: repeat(2,1fr); }    
